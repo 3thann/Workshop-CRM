@@ -12,4 +12,15 @@ class CustomerController extends Controller
         $customers = Customer::all();
         return view('customer.index', compact("customers"));
     }
+
+    public function show($id)
+    {
+        $customer = Customer::find($id);
+        return view('customer.show', compact("customer"));
+    }
+
+    public function create()
+    {
+        return view('customer.create');
+    }
 }

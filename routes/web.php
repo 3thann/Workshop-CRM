@@ -16,6 +16,10 @@ use App\Http\Controllers\CustomerController;
 |
 */
 
+Route::get('/w', function () {
+    return view('welcome');
+});
+
 Route::middleware('auth')->group(function () {
     Route::get('/', [GenericsController::class, 'index'])->name("generics.dashboard");
     Route::get('/dashboard', [GenericsController::class, 'index'])->name("generics.dashboard");
@@ -23,7 +27,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/customers', [CustomerController::class, 'index'])->name("customer.index");
     Route::get('/customer/{id}', [CustomerController::class, 'show'])->name("customer.show");
     Route::get('/customer/create', [CustomerController::class, 'create'])->name("customer.create");
-    Route::post('/customer/create', [CustomerController::class, 'store'])->name("customer.store");
+    Route::post('/customer/store', [CustomerController::class, 'store'])->name("customer.store");
     Route::get('/customer/{id}/edit', [CustomerController::class, 'edit'])->name("customer.edit");
     Route::put('/customer/{id}/update', [CustomerController::class, 'update'])->name("customer.update");
     Route::delete('/customers', [CustomerController::class, 'destroy'])->name("customer.destroy");

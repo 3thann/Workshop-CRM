@@ -9,7 +9,7 @@
     <p class="mb-4">Affichage des clients et de leurs informations.</p>
     <p class="mb-4">Pour ajouter un client, cliquer sur le bouton ci-dessous :</p>
 
-    <form action="{{ route('customer.create')}}" method="POST" class="d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+    <form action="{{ route('customer.create')}}" class="d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
         @csrf
         <div class="input-group">
             <button type="submit" class="btn btn-success btn-icon-split" spellcheck="false">
@@ -41,13 +41,13 @@
                                     <td style="width: 33%;">{{$customer->first_name}}</td>
                                     <td style="width: 33%;">{{$customer->last_name}}</td>
                                     <td class="custom-td">
-                                        {{-- <a href="{{ route('customer.edit', $customer->id) }}" class="btn btn-light btn-icon-split" spellcheck="false"> --}}
-                                        <span class="icon text-gray-600">
-                                            <i class="far fa-edit"></i>
-                                        </span>
-                                        <span class="text">Modifier</span>
-                                    {{-- </a> --}}
-                                        <a href="#" class="btn btn-light btn-icon-split" spellcheck="false">
+                                        <a href="{{ route('customer.edit', $customer->id) }}" class="btn btn-light btn-icon-split" spellcheck="false">
+                                            <span class="icon text-gray-600">
+                                                <i class="far fa-edit"></i>
+                                            </span>
+                                            <span class="text">Modifier</span>
+                                        </a>
+                                        <a href="{{ route('customer.show', $customer->id) }}" class="btn btn-light btn-icon-split" spellcheck="false">
                                         <span class="icon text-gray-600">
                                             <i class="far fa-eye"></i>
                                         </span>

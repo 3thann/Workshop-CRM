@@ -11,7 +11,7 @@ class Customer extends Model
 
     protected $table = "customer";
 
-    protected $fillable = ['last_name', 'first_name', 'mail', 'phone_number', 'is_dead'];
+    protected $fillable = ['last_name', 'first_name', 'email', 'phone_number', 'is_dead'];
 
     public function business_id()
     {

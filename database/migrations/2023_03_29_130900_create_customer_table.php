@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('last_name', 50);
             $table->string('first_name', 50);
-            $table->string('mail', 255);
-            $table->integer('phone_number');
-            $table->unsignedBigInteger('business_id');
+            $table->string('email', 255);
+            $table->string('phone_number');
+            $table->unsignedBigInteger('business_id')->nullable();
             $table->unsignedBigInteger('status_id');
             $table->boolean('is_dead');
             $table->timestamps();
