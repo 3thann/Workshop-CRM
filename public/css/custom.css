@@ -1,0 +1,8 @@
+
+.input-group{
+    margin-bottom: 1em;
+}
+.custom-td{
+    display: flex;
+    justify-content: space-evenly;
+}
