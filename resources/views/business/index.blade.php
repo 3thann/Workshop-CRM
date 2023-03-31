@@ -3,23 +3,10 @@
 @section('content')
 <div class="container-fluid">
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Bienvenue sur la page des clients</h1>
+        <h1 class="h3 mb-0 text-gray-800">Bienvenue sur la page des entreprises</h1>
     </div>
     <!-- Page Heading -->
-    <p class="mb-4">Affichage des clients et de leurs informations.</p>
-    <p class="mb-4">Pour ajouter un client, cliquer sur le bouton ci-dessous :</p>
-
-    <form action="{{ route('customer.create')}}" class="d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-        @csrf
-        <div class="input-group">
-            <button type="submit" class="btn btn-success btn-icon-split" spellcheck="false">
-                <span class="icon text-white-50">
-                    <i class="fas fa-plus"></i>
-                </span>
-                <span class="text">Ajouter un client</span>
-            </button>
-        </div>
-    </form>
+    <p class="mb-4">Affichage des entreprises et de leurs informations.</p>
 
     <div id="content">
         <!-- DataTales Example -->
@@ -30,26 +17,24 @@
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
-                                <th>Prenom</th>
                                 <th>Nom</th>
-                                <th>Email</th>
+                                <th>Nombre de commande</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($customers as $customer)
+                            @foreach($companies as $business)
                                 <tr>
-                                    <td style="width: 25%;">{{$customer->first_name}}</td>
-                                    <td style="width: 25%;">{{$customer->last_name}}</td>
-                                    <td style="width: 25%;">{{$customer->email}}</td>
+                                    <td style="width: 33%;">{{$business->name}}</td>
+                                    <td style="width: 33%;">{{$business->id}}</td>
                                     <td class="custom-td">
-                                        <a href="{{ route('customer.edit', $customer->id) }}" class="btn btn-light btn-icon-split" spellcheck="false">
+                                        <a href="{{ route('business.edit', $business->id) }}" class="btn btn-light btn-icon-split" spellcheck="false">
                                             <span class="icon text-gray-600">
                                                 <i class="far fa-edit"></i>
                                             </span>
                                             <span class="text">Modifier</span>
                                         </a>
-                                        <a href="{{ route('customer.show', $customer->id) }}" class="btn btn-light btn-icon-split" spellcheck="false">
+                                        <a href="{{ route('business.show', $business->id) }}" class="btn btn-light btn-icon-split" spellcheck="false">
                                         <span class="icon text-gray-600">
                                             <i class="far fa-eye"></i>
                                         </span>
@@ -59,7 +44,7 @@
                             @endforeach
                         </tbody>
                     </table>
-                    {{-- {{ $customers->links('layout.pagination') }} --}}
+                    {{-- {{ $companies->links('layout.pagination') }} --}}
                 </div>
             </div>
         </div>

@@ -3,8 +3,8 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
-        <div class="sidebar-brand-text mx-3" href="{{ route('generics.dashboard') }}" >CRM</div>
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('generics.dashboard') }}">
+        <div class="sidebar-brand-text mx-3">Worshop</div>
     </a>
 
 
@@ -13,9 +13,9 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item active">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="{{ route('generics.dashboard') }}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Menu Principal</span>
+            <span>Dashboard</span>
         </a>
     </li>
 
@@ -33,10 +33,27 @@
     <li class="nav-item">
         <a class="nav-link" href="{{ route('customer.index') }}">
             <i class="fas fa-users"></i>
+            <span>Leads</span>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('customer.index') }}">
+            <i class="fas fa-users"></i>
+            <span>Prospect</span>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('customer.index') }}">
+            <i class="fas fa-users"></i>
             <span>Clients</span>
         </a>
     </li>
-
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('business.index') }}">
+            <i class="fas fa-users"></i>
+            <span>Entreprises</span>
+        </a>
+    </li>
 
     <div class="text-center d-none d-md-inline">
         <button class="rounded-circle border-0" id="sidebarToggle"></button>

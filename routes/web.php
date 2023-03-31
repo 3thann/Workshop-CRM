@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GenericsController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\BusinessController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +32,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/customer/{id}/edit', [CustomerController::class, 'edit'])->name("customer.edit");
     Route::put('/customer/{id}/update', [CustomerController::class, 'update'])->name("customer.update");
     Route::delete('/customers', [CustomerController::class, 'destroy'])->name("customer.destroy");
+
+    Route::get('/companies', [BusinessController::class, 'index'])->name("business.index");
+    Route::get('/business/{id}', [BusinessController::class, 'show'])->name("business.show");
+    Route::get('/business/{id}/edit', [BusinessController::class, 'edit'])->name("business.edit");
+    Route::put('/business/{id}/update', [BusinessController::class, 'update'])->name("business.update");
+    Route::delete('/companies', [BusinessController::class, 'destroy'])->name("business.destroy");
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
