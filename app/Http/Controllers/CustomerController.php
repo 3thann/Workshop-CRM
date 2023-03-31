@@ -7,9 +7,9 @@ use App\Models\Customer;
 
 class CustomerController extends Controller
 {
-    public function index()
+    public function index($status_id)
     {
-        $customers = Customer::where('status_id', 3)->get();
+        $customers = Customer::where('status_id', $status_id)->get();
         return view('customer.index', compact("customers"));
     }
 

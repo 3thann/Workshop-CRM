@@ -31,19 +31,19 @@
 
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
-        <a class="nav-link" href="{{ route('customer.index') }}">
+        <a class="nav-link" href="{{ route('customer.index', 1) }}">
             <i class="fas fa-users"></i>
             <span>Leads</span>
         </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="{{ route('customer.index') }}">
+        <a class="nav-link" href="{{ route('customer.index', 2) }}">
             <i class="fas fa-users"></i>
             <span>Prospect</span>
         </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="{{ route('customer.index') }}">
+        <a class="nav-link" href="{{ route('customer.index', 3) }}">
             <i class="fas fa-users"></i>
             <span>Clients</span>
         </a>

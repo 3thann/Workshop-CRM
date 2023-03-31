@@ -25,7 +25,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/', [GenericsController::class, 'index'])->name("generics.dashboard");
     Route::get('/dashboard', [GenericsController::class, 'index'])->name("generics.dashboard");
 
-    Route::get('/customers', [CustomerController::class, 'index'])->name("customer.index");
+    Route::get('/customers/{status_id}', [CustomerController::class, 'index'])->name("customer.index");
     Route::get('/customer/{id}', [CustomerController::class, 'show'])->name("customer.show");
     Route::get('/customer/create', [CustomerController::class, 'create'])->name("customer.create");
     Route::post('/customer/store', [CustomerController::class, 'store'])->name("customer.store");
@@ -35,6 +35,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/companies', [BusinessController::class, 'index'])->name("business.index");
     Route::get('/business/{id}', [BusinessController::class, 'show'])->name("business.show");
+    Route::post('/business/create', [BusinessController::class, 'store'])->name("business.store");
     Route::get('/business/{id}/edit', [BusinessController::class, 'edit'])->name("business.edit");
     Route::put('/business/{id}/update', [BusinessController::class, 'update'])->name("business.update");
     Route::delete('/companies', [BusinessController::class, 'destroy'])->name("business.destroy");

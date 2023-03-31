@@ -7,6 +7,22 @@
     </div>
     <!-- Page Heading -->
     <p class="mb-4">Affichage des entreprises et de leurs informations.</p>
+    <p class="mb-4">Pour ajouter une entreprise, veuillez remplir le formulaire ci-dessous :</p>
+    <form action="{{ route('business.store')}}" method="POST" class="d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+        @csrf
+        <div class="input-group">
+            <input type="text" name="name" class="form-control bg-light border small" value="{{old('name')}}" placeholder="Nom de l'entreprise" aria-label="Search" aria-describedby="basic-addon2">
+
+            <div class="input-group-append">
+                <button type="submit" class="btn btn-success btn-icon-split" spellcheck="false">
+                    <span class="icon text-white-50">
+                        <i class="fas fa-check"></i>
+                    </span>
+                    <span class="text">Ajouter</span>
+                </button>
+            </div>
+        </div>
+    </form>
 
     <div id="content">
         <!-- DataTales Example -->

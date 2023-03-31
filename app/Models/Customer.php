@@ -13,12 +13,12 @@ class Customer extends Model
 
     protected $fillable = ['last_name', 'first_name', 'email', 'phone_number', 'is_dead'];
 
-    public function business_id()
+    public function business()
     {
         return $this->belongsTo(Business::class, "business_id");
     }
 
-    public function status_id()
+    public function status()
     {
         return $this->belongsTo(Status::class, "status_id");
     }
