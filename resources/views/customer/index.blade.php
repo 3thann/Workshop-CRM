@@ -1,5 +1,6 @@
 @extends('layout.app')
 
+
 @section('content')
 <div class="container-fluid">
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
@@ -65,6 +66,35 @@
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+
+        document.addEventListener('DOMContentLoaded', function() {         
+            var instances = M.FormSelect.init(elems, options);
+        });
+
+        // Or with jQuery
+
+        $(document).ready(function(){
+            $('select').formSelect();
+            $('#dataTable').DataTable({
+                pageLength: 500,
+                paging: true,
+                select: false,
+                scrollY: 700,
+                columns: [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    { className: "tabSearch" }
+                ]             
+
+            }); 
+        });
+        
+    </script>
 
 
 @endsection
