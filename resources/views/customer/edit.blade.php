@@ -71,4 +71,18 @@
         </div>
 </div>
 
+<div class="container-fluid">
+    <form action="{{ route('customer.destroy') }}" method="POST" class="d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+        @method('delete')
+        @csrf
+        <input type="hidden" name="customer_id" value="{{ $customer->id }}">
+        <input type="hidden" name="status_id_old" value="{{ $customer->status_id }}">
+        <button type="submit" class="btn btn-danger btn-icon-split" spellcheck="false">
+            <span class="icon text-white-50">
+                <i class="fas fa-trash"></i>
+            </span>
+            <span class="text">Supprimer</span>
+        </button>
+    </form>
+</div>
 @endsection

@@ -3,7 +3,7 @@
 @section('content')
 <div class="container-fluid">
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Bienvenue sur la page des clients de : {{ $business->name}}</h1>
+        <h1 class="h3 mb-0 text-gray-800">Information de l'entreprise {{ $business->name}}</h1>
     </div>
     <!-- Page Heading -->
     <form action="{{ route('business.store') }}" method="POST" class="d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
