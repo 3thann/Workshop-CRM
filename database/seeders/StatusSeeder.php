@@ -13,7 +13,7 @@ class StatusSeeder extends Seeder
     public function run(): void
     {
         $datas = [
-            "Leads",
+            "Lead",
             "Prosect",
             "Client"
         ];

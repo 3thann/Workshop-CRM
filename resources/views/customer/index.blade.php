@@ -49,7 +49,7 @@
                                             </span>
                                             <span class="text">Modifier</span>
                                         </a>
-                                        <a href="{{ route('customer.show', $customer->id) }}" class="btn btn-light btn-icon-split" spellcheck="false">
+                                        <a href="{{ route('customer.edit', $customer->id) }}" class="btn btn-light btn-icon-split" spellcheck="false">
                                         <span class="icon text-gray-600">
                                             <i class="far fa-eye"></i>
                                         </span>

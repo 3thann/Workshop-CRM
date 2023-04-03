@@ -39,7 +39,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($companies as $business)
+                            @foreach($businesses as $business)
                                 <tr>
                                     <td style="width: 33%;">{{$business->name}}</td>
                                     <td style="width: 33%;">{{$business->id}}</td>
@@ -60,7 +60,7 @@
                             @endforeach
                         </tbody>
                     </table>
-                    {{-- {{ $companies->links('layout.pagination') }} --}}
+                    {{-- {{ $businesses->links('layout.pagination') }} --}}
                 </div>
             </div>
         </div>

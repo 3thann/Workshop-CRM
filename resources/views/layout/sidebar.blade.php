@@ -26,7 +26,7 @@
 
     <!-- Heading -->
     <div class="sidebar-heading">
-        Dossier
+        Section
     </div>
 
     <!-- Nav Item - Pages Collapse Menu -->
@@ -39,7 +39,7 @@
     <li class="nav-item">
         <a class="nav-link" href="{{ route('customer.index', 2) }}">
             <i class="fas fa-users"></i>
-            <span>Prospect</span>
+            <span>Prospects</span>
         </a>
     </li>
     <li class="nav-item">
@@ -50,14 +50,10 @@
     </li>
     <li class="nav-item">
         <a class="nav-link" href="{{ route('business.index') }}">
-            <i class="fas fa-users"></i>
+            <i class="fas fa-building"></i>
             <span>Entreprises</span>
         </a>
     </li>
-
-    <div class="text-center d-none d-md-inline">
-        <button class="rounded-circle border-0" id="sidebarToggle"></button>
-    </div>
     </ul>
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">

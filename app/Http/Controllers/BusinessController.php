@@ -10,8 +10,8 @@ class BusinessController extends Controller
 {
     public function index()
     {
-        $companies = Business::all();
-        return view('business.index', compact("companies"));
+        $businesses = Business::all();
+        return view('business.index', compact("businesses"));
     }
 
     public function store(Request $request)
