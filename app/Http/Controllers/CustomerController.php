@@ -65,4 +65,10 @@ class CustomerController extends Controller
 
         return redirect()->route('customer.index', $request->get('status_id'));
     }
+
+    public function destroy(Request $request)
+    {
+        Customer::find($request->get('customer_id'))->delete();
+        return redirect()->route('customer.index', $request->get('status_id_old'));
+    }
 }
