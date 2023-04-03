@@ -36,7 +36,7 @@
             <select name="business_id" class="form-control bg-light border small" aria-label="Search" aria-describedby="basic-addon2">
                 @if (isset ($customers->business_id))
                     <option value="{{ $customer->business_id }}">{{ $customer->business->name }}</option>
-                @else <option value="null">Pas d'entreprise</option>
+                @else <option value="">Pas d'entreprise</option>
                 @endif
 
                 @foreach ($businesses as $business)

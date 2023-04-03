@@ -12,4 +12,9 @@ class Business extends Model
     protected $table = "business";
 
     protected $fillable = ['name'];
+
+    public function customers()
+    {
+        return $this->HasMany(Customer::class);
+    }
 }

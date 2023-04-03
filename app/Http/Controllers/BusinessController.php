@@ -13,6 +13,13 @@ class BusinessController extends Controller
         $businesses = Business::all();
         return view('business.index', compact("businesses"));
     }
+    
+    public function show($id)
+    {
+        $business = Business::with("customers")->find($id);
+
+        return view('business.show', compact("business"));
+    }
 
     public function store(Request $request)
     {
