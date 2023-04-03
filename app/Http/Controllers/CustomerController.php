@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Customer;
 use App\Models\Business;
 use App\Models\Status;
+use App\Models\Action;
 
 class CustomerController extends Controller
 {
@@ -21,8 +22,9 @@ class CustomerController extends Controller
         $customer = Customer::find($id);
         $status = Status::all();
         $business = Business::all();
+        $actions = Action::where('customer_id', $id)->get();
 
-        return view('customer.show', compact("customer", "status", "business"));
+        return view('customer.show', compact("customer", "status", "business", "actions"));
     }
 
     public function create()

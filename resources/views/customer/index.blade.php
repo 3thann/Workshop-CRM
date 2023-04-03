@@ -69,32 +69,29 @@
 
 <script type="text/javascript">
 
-        document.addEventListener('DOMContentLoaded', function() {         
-            var instances = M.FormSelect.init(elems, options);
-        });
-
-        // Or with jQuery
-
-        $(document).ready(function(){
-            $('select').formSelect();
-            $('#dataTable').DataTable({
-                pageLength: 500,
-                paging: true,
-                select: false,
-                scrollY: 700,
-                columns: [
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    { className: "tabSearch" }
-                ]             
-
-            }); 
-        });
+    document.addEventListener('DOMContentLoaded', function() {         
+        var instances = M.FormSelect.init(elems, options);
+    });
+    // Or with jQuery
+    $(document).ready(function(){
+        $('select').formSelect();
+        $('#dataTable').DataTable({
+            pageLength: 500,
+            paging: true,
+            select: false,
+            scrollY: 700,
+            columns: [
+                null,
+                null,
+                null,
+                null,
+                null,
+                { className: "tabSearch" }
+            ]             
+        }); 
+    });
         
-    </script>
+</script>
 
 
 @endsection
