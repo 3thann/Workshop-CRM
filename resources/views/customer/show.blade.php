@@ -12,7 +12,7 @@
 
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table table-bordered" id="dataTable" cellspacing="0">
+                    <table class="table table-bordered"  cellspacing="0">
                         <thead>
                             <tr>
                                 <th>Nom</th>
@@ -24,7 +24,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>                                    
+                            <tr>
                                 <td style="width: 13%;">{{$customer->first_name}}</td>
                                 <td style="width: 13%;">{{$customer->last_name}}</td>
                                 <td style="width: 13%;">{{$customer->email}}</td>
