@@ -9,16 +9,16 @@
     <div id="content">
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
-
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table table-bordered"  cellspacing="0">
+                    <table class="table table-bordered" cellspacing="0">
+
                         <thead>
                             <tr>
                                 <th>Nom</th>
-                                <th>Prenom</th>
+                                <th>Prénom</th>
                                 <th>Mail</th>
-                                <th>Numéro de téléphone</th>
+                                <th>Téléphone</th>
                                 <th>Entreprise</th>
                                 <th>Statut</th>
                             </tr>
@@ -31,6 +31,27 @@
                                 <td style="width: 13%;">{{$customer->phone_number}}</td>
                                 <td style="width: 13%;">{{$customer->business->name}}</td>
                                 <td style="width: 13%;">{{$customer->status->name}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="card shadow mb-4">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                @foreach ($actions as $action)
+                                    <td style="width: 100%;">{{ $action->description}}</td>
+                                @endforeach
                             </tr>
                         </tbody>
                     </table>
