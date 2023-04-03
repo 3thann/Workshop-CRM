@@ -22,11 +22,11 @@ Route::get('/w', function () {
 });
 
 Route::middleware('auth')->group(function () {
-    Route::get('/', [GenericsController::class, 'index'])->name("generics.dashboard");
+    Route::get('/', [GenericsController::class, 'index'])->name("generics.home");
     Route::get('/dashboard', [GenericsController::class, 'index'])->name("generics.dashboard");
 
     Route::get('/customers/{status_id}', [CustomerController::class, 'index'])->name("customer.index");
-    // Route::get('/customer/{id}', [CustomerController::class, 'show'])->name("customer.show");
+    Route::get('/customer/{id}', [CustomerController::class, 'show'])->name("customer.show");
     Route::get('/customer/create', [CustomerController::class, 'create'])->name("customer.create");
     Route::post('/customer/store', [CustomerController::class, 'store'])->name("customer.store");
     Route::get('/customer/{id}/edit', [CustomerController::class, 'edit'])->name("customer.edit");

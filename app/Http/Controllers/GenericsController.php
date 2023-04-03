@@ -8,6 +8,6 @@ class GenericsController extends Controller
 {
     public function index()
     {
-        return view('generics.dashboard');
+        return view('generics.home');
     }
 }

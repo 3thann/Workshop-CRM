@@ -12,19 +12,24 @@ class CustomerController extends Controller
     public function index($status_id)
     {
         $customers = Customer::where('status_id', $status_id)->get();
+
         return view('customer.index', compact("customers"));
     }
 
     public function show($id)
     {
         $customer = Customer::find($id);
-        return view('customer.show', compact("customer"));
+        $status = Status::all();
+        $business = Business::all();
+
+        return view('customer.show', compact("customer", "status", "business"));
     }
 
     public function create()
     {
         $statuses = Status::all();
         $businesses = Business::all();
+
         return view('customer.create', compact('statuses', 'businesses'));
     }
 
@@ -48,6 +53,7 @@ class CustomerController extends Controller
         $customer = Customer::find($id);
         $statuses = Status::all();
         $businesses = Business::all();
+        
         return view('customer.edit', compact("customer", "statuses", "businesses"));
     }
 

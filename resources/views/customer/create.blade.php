@@ -60,7 +60,7 @@
                     <span class="icon text-white-50">
                         <i class="fas fa-trash"></i>
                     </span>
-            <span class="text">Annuler</span>
+            <span class="text">Supprimer</span>
         </button>
     </form>
         </div>
