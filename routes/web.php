@@ -22,7 +22,7 @@ Route::get('/w', function () {
 });
 
 Route::middleware('auth')->group(function () {
-    Route::get('/', [GenericsController::class, 'index'])->name("generics.dashboard");
+    Route::get('/', [GenericsController::class, 'index'])->name("generics.home");
     Route::get('/dashboard', [GenericsController::class, 'index'])->name("generics.dashboard");
 
     Route::get('/customers/{status_id}', [CustomerController::class, 'index'])->name("customer.index");
