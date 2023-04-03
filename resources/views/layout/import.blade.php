@@ -3,16 +3,6 @@
 <script src="{{asset("bootstrap/js/bootstrap.bundle.min.js")}}"></script>
 <!-- Core plugin JavaScript-->
 <script src="{{asset("jquery-easing/jquery.easing.min.js")}}"></script>
-<<<<<<< HEAD
-    <!-- Custom scripts for all pages-->
-<script src="{{asset("js/sb-admin-2.min.js")}}"></script>
-<script src="{{asset("js/datatables-demo.js")}}"></script>
-    <!-- Page level plugins -->
-<script src="{{asset("chart.js/Chart.min.js")}}"></script>
-<!-- Page level custom scripts -->
-<script src="{{asset("js/chart-area-demo.js")}}"></script>
-<script src="{{asset("js/chart-pie-demo.js")}}"></script>
-=======
 <!-- Custom scripts for all pages-->
 <script src="{{asset("js/sb-admin-2.min.js")}}"></script>
 <script src="{{asset("js/datatables-demo.js")}}"></script>
@@ -21,5 +11,3 @@
 <!-- Page level custom scripts -->
 <script src="{{asset("js/chart-area-demo.js")}}"></script>
 <script src="{{asset("js/chart-pie-demo.js")}}"></script>
-
->>>>>>> eb8dc50388c3a78fb7adb2a2495a1f437aaf8733
