@@ -12,6 +12,9 @@ class DatabaseSeeder extends Seeder
         $this->call([
             StatusSeeder::class,
         ]);
+        $this->call([
+            BusinessSeeder::class,
+        ]);
         \App\Models\Business::factory(50)->create();
         \App\Models\Customer::factory(50)->create();
     }

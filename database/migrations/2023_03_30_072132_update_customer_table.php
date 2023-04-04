@@ -11,7 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('customer', function($table) {
+        Schema::table('customer', function($table) 
+        {
             $table->foreign('business_id')->references('id')->on('business');
             $table->foreign('status_id')->references('id')->on('status');
         });

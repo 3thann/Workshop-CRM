@@ -11,10 +11,25 @@ class Business extends Model
 
     protected $table = "business";
 
-    protected $fillable = ['name'];
+    protected $fillable = [
+        'name'
+    ];
+
+    protected $guarded = ['id'];
 
     public function customers()
     {
         return $this->HasMany(Customer::class);
+    }
+
+    public static function boot()
+    {
+        parent::boot();
+
+        static::deleting(function ($business) {
+            if ($business->id === 1) {
+                return false;
+            }
+        });
     }
 }
