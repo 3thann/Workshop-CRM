@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GenericsController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\BusinessController;
+use App\Http\Controllers\ActionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +33,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/customer/{id}/edit', [CustomerController::class, 'edit'])->name("customer.edit");
     Route::put('/customer/{id}/update', [CustomerController::class, 'update'])->name("customer.update");
     Route::delete('/customer/delete', [CustomerController::class, 'destroy'])->name("customer.destroy");
+
+    Route::get('/customer/{id}/create/action', [ActionController::class, 'create'])->name("action.create");
+    Route::post('/customer/{id}/store/action', [ActionController::class, 'store'])->name("action.store");
 
     Route::get('/businesses', [BusinessController::class, 'index'])->name("business.index");
     Route::get('/business/{id}', [BusinessController::class, 'show'])->name("business.show");

@@ -40,7 +40,6 @@
                             @endforeach
                         </tbody>
                     </table>
-                    {{-- {{ $customers->links('layout.pagination') }} --}}
                 </div>
             </div>
         </div>

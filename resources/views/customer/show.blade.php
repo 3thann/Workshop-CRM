@@ -29,7 +29,11 @@
                                 <td style="width: 13%;">{{$customer->last_name}}</td>
                                 <td style="width: 13%;">{{$customer->email}}</td>
                                 <td style="width: 13%;">{{$customer->phone_number}}</td>
-                                <td style="width: 13%;">{{$customer->business->name}}</td>
+                                <td style="width: 13%;">
+                                    @if (isset ($customers->business_id))
+                                        <option value="{{ $customer->business_id }}">{{ $customer->business->name }}</option>
+                                    @else <option value="">Pas d'entreprise</option>
+                                    @endif
                                 <td style="width: 13%;">{{$customer->status->name}}</td>
                             </tr>
                         </tbody>
@@ -45,12 +49,14 @@
                         <thead>
                             <tr>
                                 <th>Action</th>
+                                <th>Réponse</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 @foreach ($actions as $action)
-                                    <td style="width: 100%;">{{ $action->description}}</td>
+                                    <td style="width: 50%;">{{ $action->description}}</td>
+                                    <td style="width: 50%;">{{ $action->answer}}</td>
                                 @endforeach
                             </tr>
                         </tbody>

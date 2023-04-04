@@ -47,7 +47,7 @@ class CustomerController extends Controller
         $customer->is_dead = $request->get('is_dead');
         $customer->save();
 
-        return redirect()->route('customer.index', $request->get('status_id'));
+        return redirect()->route('action.create', $customer->id);
     }
 
     public function edit($id)
@@ -71,12 +71,13 @@ class CustomerController extends Controller
         $customer->is_dead = $request->get('is_dead');
         $customer->save();
 
-        return redirect()->route('customer.index', $request->get('status_id'));
+        return redirect()->route('action.create', $id);
     }
 
     public function destroy(Request $request)
     {
         Customer::find($request->get('customer_id'))->delete();
+
         return redirect()->route('customer.index', $request->get('status_id_old'));
     }
 }
