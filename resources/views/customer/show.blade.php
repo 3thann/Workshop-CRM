@@ -49,16 +49,14 @@
                         <thead>
                             <tr>
                                 <th>Action</th>
-                                <th>Réponse</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                @foreach ($actions as $action)
-                                    <td style="width: 50%;">{{ $action->description}}</td>
-                                    <td style="width: 50%;">{{ $action->answer}}</td>
-                                @endforeach
-                            </tr>
+                            @foreach ($actions as $action)
+                                <tr>
+                                    <td style="width: 100%;">{{ $action->description}}</td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

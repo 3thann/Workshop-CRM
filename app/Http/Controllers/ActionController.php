@@ -19,15 +19,17 @@ class ActionController extends Controller
     {
         $customer = Customer::find($id);
 
-        foreach ($request->description as $key => $description) {
-            $action = new Action();
-            $action->customer_id = $id;
-            $action->business_id = $customer->business_id;
-            $action->description = $description;
-            $action->answer = $request->answer[$key];
-            $action->save();
-            $action = null;
-        }
+
+        if (isset($request->description)) {
+            foreach ($request->description as $key => $description) {
+                $action = new Action();
+                $action->customer_id = $id;
+                $action->business_id = $customer->business_id;
+                $action->description = $description;
+                $action->save();
+                $action = null;
+            }
+        } else {}
 
         return redirect()->route('customer.index', $customer->status_id);
     }
