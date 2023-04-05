@@ -12,7 +12,7 @@
             @method("PUT")
             @csrf
             <div class="input-group">
-                <input type="text" name="name" class="form-control bg-light border small" placeholder="Changer le nom" aria-label="Search" aria-describedby="basic-addon2" value="{{ $business->name }}">
+                <input type="text" name="name" class="form-control bg-light border small" placeholder="Changer le nom" aria-label="Search" aria-describedby="basic-addon2" value="{{ $business->name }}" required>
 
                 <input type="hidden" name="business_id" value='{{$business->id}}'>
                 <div class="input-group-append">
@@ -37,5 +37,5 @@
             <span class="text">Supprimer</span>
         </button>
     </form>
-
+</div>
 @endsection

@@ -18,3 +18,6 @@
 
 <!-- Chart bar  -->
 <script src="{{asset('js/chart-bar.js')}}"></script>
+
+<!-- Custom JS  -->
+<script src="{{asset('js/custom.js')}}"></script>

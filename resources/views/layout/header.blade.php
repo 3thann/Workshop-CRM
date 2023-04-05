@@ -14,6 +14,7 @@
 
     <link href="{{ asset('./css/sb-admin-2.css') }}" rel="stylesheet">
     <link href="{{ asset('./css/custom.css') }}" rel="stylesheet">
+    <link href="{{ asset('./css/dashboard.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css')}}" />
     
 </head>

@@ -26,6 +26,7 @@ class ActionController extends Controller
                 $action->customer_id = $id;
                 $action->business_id = $customer->business_id;
                 $action->description = $description;
+                $action->date = $request->date[$key];
                 $action->save();
                 $action = null;
             }

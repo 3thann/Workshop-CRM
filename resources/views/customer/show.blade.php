@@ -25,16 +25,12 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td style="width: 13%;">{{$customer->first_name}}</td>
-                                <td style="width: 13%;">{{$customer->last_name}}</td>
-                                <td style="width: 13%;">{{$customer->email}}</td>
-                                <td style="width: 13%;">{{$customer->phone_number}}</td>
-                                <td style="width: 13%;">
-                                    @if (isset ($customers->business_id))
-                                        <option value="{{ $customer->business_id }}">{{ $customer->business->name }}</option>
-                                    @else <option value="">Pas d'entreprise</option>
-                                    @endif
-                                <td style="width: 13%;">{{$customer->status->name}}</td>
+                                <td style="width: 13%;">{{ $customer->first_name }}</td>
+                                <td style="width: 13%;">{{ $customer->last_name }}</td>
+                                <td style="width: 13%;">{{ $customer->email }}</td>
+                                <td style="width: 13%;">{{ $customer->phone_number }}</td>
+                                <td style="width: 13%;">{{ $customer->business->name }}</td>
+                                <td style="width: 13%;">{{ $customer->status->name }}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -49,12 +45,14 @@
                         <thead>
                             <tr>
                                 <th>Action</th>
+                                <th>Date</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($actions as $action)
                                 <tr>
-                                    <td style="width: 100%;">{{ $action->description}}</td>
+                                    <td style="width: 80%;">{{ $action->description}}</td>
+                                    <td style="width: 20%;">{{ $action->date}}</td>
                                 </tr>
                             @endforeach
                         </tbody>

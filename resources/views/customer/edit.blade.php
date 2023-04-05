@@ -13,16 +13,16 @@
         @method('PUT')
         @csrf
         <div class="input-group">
-            <input type="text" name="first_name" value="{{ $customer->first_name }}" class="form-control bg-light border small" aria-label="Search" aria-describedby="basic-addon2">
+            <input type="text" name="first_name" value="{{ $customer->first_name }}" class="form-control bg-light border small" aria-label="Search" aria-describedby="basic-addon2" required>
         </div>
         <div class="input-group">
-            <input type="text" name="last_name" value="{{ $customer->last_name }}" class="form-control bg-light border small" aria-label="Search" aria-describedby="basic-addon2">
+            <input type="text" name="last_name" value="{{ $customer->last_name }}" class="form-control bg-light border small" aria-label="Search" aria-describedby="basic-addon2" required>
         </div>
         <div class="input-group">
-            <input type="email" name="email" value="{{ $customer->email }}" class="form-control bg-light border small" aria-label="Search" aria-describedby="basic-addon2">
+            <input type="email" name="email" value="{{ $customer->email }}" class="form-control bg-light border small" aria-label="Search" aria-describedby="basic-addon2" required>
         </div>
         <div class="input-group">
-            <input type="tel" name="phone_number" value="{{ $customer->phone_number }}" class="form-control bg-light border small" aria-label="Search" aria-describedby="basic-addon2">
+            <input type="tel" name="phone_number" value="{{ $customer->phone_number }}" class="form-control bg-light border small" aria-label="Search" aria-describedby="basic-addon2" required>
         </div>
         <div class="input-group">
             <select name="status_id" class="form-control bg-light border small" aria-label="Search" aria-describedby="basic-addon2">
@@ -35,11 +35,7 @@
 
         <div class="input-group">
             <select name="business_id" class="form-control bg-light border small" aria-label="Search" aria-describedby="basic-addon2">
-                @if (isset ($customers->business_id))
-                    <option value="{{ $customer->business_id }}">{{ $customer->business->name }}</option>
-                @else <option value="">Pas d'entreprise</option>
-                @endif
-
+                <option value="{{ $customer->business_id }}">{{ $customer->business->name }}</option>
                 @foreach ($businesses as $business)
                     <option value="{{ $business->id }}">{{ $business->name }}</option>
                 @endforeach
