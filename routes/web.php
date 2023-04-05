@@ -6,6 +6,7 @@ use App\Http\Controllers\GenericsController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\BusinessController;
 use App\Http\Controllers\ActionController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,6 +44,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/business/{id}/edit', [BusinessController::class, 'edit'])->name("business.edit");
     Route::put('/business/{id}/update', [BusinessController::class, 'update'])->name("business.update");
     Route::delete('/businesses', [BusinessController::class, 'destroy'])->name("business.destroy");
+
+    Route::get('/account', [UserController::class, 'index'])->name("account.index");
+    Route::get('/account/{id}/edit', [UserController::class, 'edit'])->name("account.edit");
+    Route::post('/account/create', [UserController::class, 'store'])->name("account.store");
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

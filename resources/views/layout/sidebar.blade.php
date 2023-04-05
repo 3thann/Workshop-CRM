@@ -29,7 +29,7 @@
 
     <!-- Heading -->
     <div class="sidebar-heading">
-        Section
+        Un truc
     </div>
 
     <!-- Nav Item - Pages Collapse Menu -->
@@ -58,10 +58,20 @@
             <span>Entreprises</span>
         </a>
     </li>
+    <div class="sidebar-heading">
+        Gestion
+    </div>
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('account.index') }}">
+            <i class="fas fa-users-cog"></i>
+            <span>Gestion de comptes</span>
+        </a>
+    </li>
     <div class="text-center d-none d-md-inline">
         <button class="rounded-circle border-0" id="sidebarToggle"></button>
     </div>
-    </ul>
+
+
 
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
