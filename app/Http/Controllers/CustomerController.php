@@ -87,22 +87,22 @@ class CustomerController extends Controller
         $customers = Customer::all();
         $csvExporter = Writer::createFromString('');
     
-        $csvExporter->setDelimiter(',');
-        $csvExporter->insertOne(['Prenom', 'Nom', 'Email', 'Téléphone', 'Entreprise', 'Statut', 'Dernière actions']);
+        $csvExporter->setDelimiter(';');
+        $csvExporter->insertOne(['Prenom', 'Nom', 'Email', 'Telephone', 'Entreprise', 'Statut', 'Dernière actions']);
     
         foreach ($customers as $customer) {
             $csvExporter->insertOne([
                 $customer->first_name,
-                $customer->last_name, 
-                $customer->email, 
-                $customer->phone_number, 
-                $customer->business->name, 
+                $customer->last_name,
+                $customer->email,
+                $customer->phone_number,
+                $customer->business->name,
                 $customer->status->name
             ]);
         }
     
         return response()->streamDownload(function() use ($csvExporter) {
             echo $csvExporter->getContent();
-        }, 'Contacts.csv');
+        }, 'Contacts.csv'); redirect()->route('generics.home');
     }
 }
