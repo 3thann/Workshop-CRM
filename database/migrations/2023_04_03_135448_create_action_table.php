@@ -16,10 +16,12 @@ return new class extends Migration
             $table->unsignedBigInteger('customer_id');
             $table->unsignedBigInteger('business_id')->nullable();
             $table->string('description');
-            $table->string('date')->nullable();
+            $table->string('date');
 
             $table->foreign('customer_id')->references('id')->on('customer');
             $table->foreign('business_id')->references('id')->on('business');
+
+            $table->timestamps();
         });
     }
 

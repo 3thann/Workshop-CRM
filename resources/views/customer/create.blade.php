@@ -41,7 +41,7 @@
         </div>
 
         <div class="input-group">
-            <select name="is_dead" class="form-control bg-light border small" aria-label="Search" aria-describedby="basic-addon2" required>
+            <select name="is_dead" class="form-control bg-light border small" aria-label="Search" aria-describedby="basic-addon2">
                 <option value="0">Le contact est mort : Non</option>
                 <option value="1">Le contact est mort : Oui</option>
             </select>

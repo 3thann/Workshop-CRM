@@ -1,7 +1,7 @@
 @extends('layout.app')
 
 @section('content')
-    
+
 <div class="container-fluid">
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
@@ -41,51 +41,5 @@
     </form>
         </div>
 </div>
-
-
-<script>
-
-    function addActionField() {
-        var div = document.createElement("div");
-        div.classList.add("input-group");
-
-        var input = document.createElement("input");
-        input.setAttribute("type", "text");
-        input.setAttribute("name", "description[]");
-        input.setAttribute("placeholder", "Action");
-        input.classList.add("form-control", "bg-light", "border", "small");
-
-        var button = document.createElement("button");
-        button.setAttribute("type", "button");
-        button.classList.add("btn", "btn-danger", "btn-icon-split");
-
-        button.addEventListener('click', function(event){
-            event.preventDefault();
-            button.parentNode.remove();
-        })
-
-        var span = document.createElement("span");
-        span.classList.add("icon", "text-white-50");
-
-        var i = document.createElement("i");
-        i.classList.add("fas", "fa-trash");
-
-        span.appendChild(i);
-        button.appendChild(span);
-
-        div.appendChild(input);
-        div.appendChild(button);
-        document.getElementById("add-action").appendChild(div);
-    }
-
-    const removeButtons = document.querySelectorAll(".remove-line");
-    removeButtons.forEach(function(button){
-        button.addEventListener('click', function(event){
-            event.preventDefault();
-            button.parentNode.remove();
-        })
-    })
-
-</script>
 
 @endsection
