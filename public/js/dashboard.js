@@ -1,5 +1,4 @@
 var donuts_chart = document.getElementById('donuts_chart');
-var bar_chart = document.getElementById('bar_chart');
 var line_chart = document.getElementById('line_chart');
 
 // donuts
@@ -22,33 +21,6 @@ const data_donuts = {
 var donutsChart = new Chart(donuts_chart, {
   type: 'doughnut',
   data: data_donuts,
-});
-
-// bar
-const data_bar = {
-  labels: [
-    'Leads',
-    'Leads morts',
-    'Prospects',
-    'Prospects morts',
-    'Clients',
-  ],
-  datasets: [{
-    label: "Statuts",
-    data: [65, 59, 80, 81, 56],
-    backgroundColor: [
-      '#1b3141',
-      '#084c61',
-      '#1b3141',
-      '#084c61',
-      '#1b3141'
-    ],
-  }]
-};
-
-var barChart = new Chart(bar_chart, {
-  type: 'bar',
-  data: data_bar,
 });
 
 // line
