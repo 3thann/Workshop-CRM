@@ -11,6 +11,7 @@
 <!-- Page level custom scripts -->
 <script src="{{asset('js/chart-area-demo.js')}}"></script>
 <script src="{{asset('js/chart-pie-demo.js')}}"></script>
+<script src="{{asset('js/calendar.js')}}"></script>
 
 <!-- Jquery datatable -->
 <script src="{{asset('https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js')}}"></script>

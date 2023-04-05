@@ -39,6 +39,10 @@
                 @endforeach
             </select>
         </div>
+        
+        {{-- @if()
+        @else
+        @endif --}}
 
         <div class="input-group">
             <select name="is_dead" class="form-control bg-light border small" aria-label="Search" aria-describedby="basic-addon2" required>

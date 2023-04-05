@@ -7,6 +7,7 @@ use App\Models\Customer;
 use App\Models\Business;
 use App\Models\Status;
 use App\Models\Action;
+use League\Csv\Writer;
 
 class CustomerController extends Controller
 {
@@ -79,5 +80,29 @@ class CustomerController extends Controller
         Customer::find($request->get('customer_id'))->delete();
 
         return redirect()->route('customer.index', $request->get('status_id_old'));
+    }
+
+    public function exportCustomerToCsv()
+    {
+        $customers = Customer::all();
+        $csvExporter = Writer::createFromString('');
+    
+        $csvExporter->setDelimiter(',');
+        $csvExporter->insertOne(['Prenom', 'Nom', 'Email', 'Téléphone', 'Entreprise', 'Statut', 'Dernière actions']);
+    
+        foreach ($customers as $customer) {
+            $csvExporter->insertOne([
+                $customer->first_name,
+                $customer->last_name, 
+                $customer->email, 
+                $customer->phone_number, 
+                $customer->business->name, 
+                $customer->status->name
+            ]);
+        }
+    
+        return response()->streamDownload(function() use ($csvExporter) {
+            echo $csvExporter->getContent();
+        }, 'Contacts.csv');
     }
 }
