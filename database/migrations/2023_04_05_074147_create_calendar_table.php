@@ -14,12 +14,12 @@ return new class extends Migration
         Schema::create('calendar', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            // $table->string('title');
-            // $table->dateTime('start');
-            // $table->dateTime('end');
-            // $table->boolean('all_day')->default(false);
-            // $table->text('description')->nullable();
-            // $table->string('url')->nullable();
+             $table->string('title');
+             $table->dateTime('start');
+             $table->dateTime('end');
+             $table->boolean('all_day')->default(false);
+             $table->text('description')->nullable();
+             $table->string('url')->nullable();
         });
     }
 
