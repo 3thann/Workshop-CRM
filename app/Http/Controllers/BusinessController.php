@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Business;
 use App\Models\Customer;
+use App\Models\OrderLink;
 
 class BusinessController extends Controller
 {
@@ -17,8 +18,9 @@ class BusinessController extends Controller
     public function show($id)
     {
         $business = Business::with("customers")->find($id);
+        $orders = OrderLink::where("business_id", $id)->get();
 
-        return view('business.show', compact("business"));
+        return view('business.show', compact("business", "orders"));
     }
 
     public function store(Request $request)

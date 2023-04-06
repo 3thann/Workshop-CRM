@@ -14,7 +14,7 @@ class StatusSeeder extends Seeder
     {
         $datas = [
             "Lead",
-            "Prosect",
+            "Prospect",
             "Client"
         ];
         

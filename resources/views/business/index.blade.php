@@ -11,7 +11,7 @@
     <form action="{{ route('business.store')}}" method="POST" class="d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
         @csrf
         <div class="input-group">
-            <input type="text" name="name" class="form-control bg-light border small" value="{{old('name')}}" placeholder="Nom de l'entreprise" aria-label="Search" aria-describedby="basic-addon2">
+            <input type="text" name="name" class="form-control bg-light border small" value="{{old('name')}}" placeholder="Nom de l'entreprise" aria-label="Search" aria-describedby="basic-addon2" required>
 
             <div class="input-group-append">
                 <button type="submit" class="btn btn-success btn-icon-split" spellcheck="false">
@@ -34,15 +34,13 @@
                         <thead>
                             <tr>
                                 <th>Nom</th>
-                                <th>Nombre de commande</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($businesses as $business)
                                 <tr>
-                                    <td style="width: 33%;">{{$business->name}}</td>
-                                    <td style="width: 33%;">{{$business->id}}</td>
+                                    <td style="width: 66%;">{{ $business->name }}</td>
                                     <td class="custom-td">
                                         <a href="{{ route('business.edit', $business->id) }}" class="btn btn-light btn-icon-split" spellcheck="false">
                                             <span class="icon text-gray-600">
@@ -60,7 +58,6 @@
                             @endforeach
                         </tbody>
                     </table>
-                    {{-- {{ $businesses->links('layout.pagination') }} --}}
                 </div>
             </div>
         </div>
