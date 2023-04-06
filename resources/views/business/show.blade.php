@@ -8,7 +8,6 @@
     <!-- Page Heading -->
     <form action="{{ route('business.store') }}" method="POST" class="d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
         @csrf
-        <div class="input-group">
             
     @if ($errors->any())
         <div class="alert alert-danger">
@@ -23,19 +22,18 @@
     <div id="content">
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
-
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table table-bordered" id="dataTable" cellspacing="0">
+                    <table class="table table-bordered" width="100%" cellspacing="0">
                         <thead>
                             <tr>
                                 <th>Nom des clients</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($business->customers as $all_customers)
+                            @foreach ($business->customers as $customer)
                                 <tr>
-                                    <td style="width: auto;">{{ $all_customers->first_name}}</td>
+                                    <td style="width: 100%;">{{ $customer->first_name }} {{ $customer->last_name }}</td>
                                 </tr>
                             @endforeach
                         </tbody>

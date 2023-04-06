@@ -20,6 +20,7 @@ return new class extends Migration
             $table->unsignedBigInteger('business_id');
             $table->unsignedBigInteger('status_id');
             $table->boolean('is_dead');
+            $table->boolean('contacted');
             $table->timestamps();
         });
     }

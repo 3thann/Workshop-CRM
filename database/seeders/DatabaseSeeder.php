@@ -17,5 +17,7 @@ class DatabaseSeeder extends Seeder
         ]);
         \App\Models\Business::factory(50)->create();
         \App\Models\Customer::factory(50)->create();
+        \App\Models\Order::factory(50)->create();
+        \App\Models\OrderLink::factory(50)->create();
     }
 }

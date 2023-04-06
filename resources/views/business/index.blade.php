@@ -35,15 +35,13 @@
                         <thead>
                             <tr>
                                 <th>Nom</th>
-                                <th>Nombre de commande</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($businesses as $business)
                                 <tr>
-                                    <td style="width: 33%;">{{$business->name}}</td>
-                                    <td style="width: 33%;">{{$business->id}}</td>
+                                    <td style="width: 66%;">{{ $business->name }}</td>
                                     <td class="custom-td">
                                         <a href="{{ route('business.edit', $business->id) }}" class="btn btn-light btn-icon-split" spellcheck="false">
                                             <span class="icon text-gray-600">
@@ -61,7 +59,6 @@
                             @endforeach
                         </tbody>
                     </table>
-                    {{-- {{ $businesses->links('layout.pagination') }} --}}
                 </div>
             </div>
         </div>
