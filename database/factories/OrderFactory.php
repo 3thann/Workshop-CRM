@@ -19,6 +19,7 @@ class OrderFactory extends Factory
         return [
             'name' => fake()->word(),
             'quantity' => rand(1,3),
+            'date' => fake()->date(),
         ];
     }
 }

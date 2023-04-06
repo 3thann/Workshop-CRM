@@ -11,7 +11,7 @@ class Order extends Model
 
     protected $table = "order";
 
-    protected $fillable = ['name', 'quantity'];
+    protected $fillable = ['name', 'quantity', 'date'];
 
     public function orderlink() 
     {

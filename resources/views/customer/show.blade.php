@@ -60,6 +60,31 @@
                 </div>
             </div>
         </div>
+
+        <div class="card shadow mb-4">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Commande</th>
+                                <th>Quantité</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($orderslink as $orderlink)
+                                <tr>
+                                    <td style="width: 70%;">{{ $orderlink->order->name }}</td>
+                                    <td style="width: 10%;">{{ $orderlink->order->quantity }}</td>
+                                    <td style="width: 20%;">{{ $orderlink->order->date }}</td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 

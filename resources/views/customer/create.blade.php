@@ -7,7 +7,7 @@
     <form action="{{ route('customer.store')}}" method="POST" class="d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
         @csrf
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Ajouter un client</h1>
+            <h1 class="h3 mb-0 text-gray-800">Ajouter un contact</h1>
         </div>
         <div>
         <div class="input-group">
@@ -31,10 +31,6 @@
                 @endforeach
             </select>
         </div>
-        
-        {{-- @if()
-        @else
-        @endif --}}
 
         <div class="input-group">
             <div class="custom-control custom-checkbox">

@@ -6,6 +6,7 @@ use App\Http\Controllers\GenericsController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\BusinessController;
 use App\Http\Controllers\ActionController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\CalendarController;
 use App\Http\Controllers\UserController;
 
@@ -38,6 +39,9 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/customer/{id}/create/action', [ActionController::class, 'create'])->name("action.create");
     Route::post('/customer/{id}/store/action', [ActionController::class, 'store'])->name("action.store");
+
+    Route::get('/customer/{id}/create/order', [OrderController::class, 'create'])->name("order.create");
+    Route::post('/customer/{id}/store/order', [OrderController::class, 'store'])->name("order.store");
 
     Route::get('/businesses', [BusinessController::class, 'index'])->name("business.index");
     Route::get('/business/{id}', [BusinessController::class, 'show'])->name("business.show");
