@@ -1,0 +1,64 @@
+.canvas_donuts {
+    display: flex;
+    height: 225px;
+    margin: 25px 0px;
+}
+.canvas_line {
+    display: flex;
+    width: 600px;
+    justify-content: center;
+}
+.canvas_all_line{
+    justify-content: center;
+    display: flex;
+}
+
+.all_canva{
+    justify-content: center;
+}
+
+.canva_all_div{
+    flex-direction: column ;
+}
+
+.side_bar{
+    list-style-type : none;
+    font-size: x-large;
+    padding-top: 55px;
+}
+   
+
+.dasboard{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+@media screen and (max-width: 410px){
+    .canvas_line {
+        width: 300px;
+        justify-content: center;
+    }
+
+    .side_bar{
+        font-size: large;
+        padding-top: 30px;
+    }
+
+    .canvas_donuts {
+        height: 190px;
+        margin: 25px 0px;
+    }
+    
+}
+
+@media screen and (max-width: 350px){
+    .dasboard{
+        flex-direction: column;
+    }
+
+    .side_bar{
+        padding: 15px;
+    }
+}

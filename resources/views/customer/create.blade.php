@@ -31,6 +31,10 @@
                 @endforeach
             </select>
         </div>
+        
+        {{-- @if()
+        @else
+        @endif --}}
 
         <div class="input-group">
             <div class="custom-control custom-checkbox">

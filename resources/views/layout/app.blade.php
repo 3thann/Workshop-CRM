@@ -2,7 +2,7 @@
 <html lang="fr">
 
     @include("layout.header")
-    
+
     <body id="page-top">
         <div id="wrapper">
             @include("layout.sidebar")
@@ -11,10 +11,9 @@
                     @include("layout.topbar")
                     @yield('content')
                 </div>
-                
                 @include("layout.footer")
-    
             </div>
+
         </div>
         @include("layout.import")
         @include("layout.logout")

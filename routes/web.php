@@ -6,6 +6,8 @@ use App\Http\Controllers\GenericsController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\BusinessController;
 use App\Http\Controllers\ActionController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\CalendarController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,9 +46,18 @@ Route::middleware('auth')->group(function () {
     Route::put('/business/{id}/update', [BusinessController::class, 'update'])->name("business.update");
     Route::delete('/businesses', [BusinessController::class, 'destroy'])->name("business.destroy");
 
+    Route::get('/account', [UserController::class, 'index'])->name("account.index");
+    Route::get('/account/{id}/edit', [UserController::class, 'edit'])->name("account.edit");
+    Route::post('/account/create', [UserController::class, 'store'])->name("account.store");
+
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    Route::get('/calendar', [CalendarController::class, 'index'])->name('calendar.index');
+
+    Route::get('/export-customer', [CustomerController::class, 'exportCustomerToCsv']);
+
 });
 
 require __DIR__.'/auth.php';

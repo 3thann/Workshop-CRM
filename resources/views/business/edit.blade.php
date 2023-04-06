@@ -37,5 +37,5 @@
             <span class="text">Supprimer</span>
         </button>
     </form>
-
+</div>
 @endsection
