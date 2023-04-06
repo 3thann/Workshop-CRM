@@ -6,8 +6,8 @@ use App\Http\Controllers\GenericsController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\BusinessController;
 use App\Http\Controllers\ActionController;
-use App\Http\Controllers\UserController;
 use App\Http\Controllers\CalendarController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -58,7 +58,7 @@ Route::middleware('auth')->group(function () {
         return view('livewire.calendar');
     });
 
-    Route::get('/export-customer', [CustomerController::class, 'exportCustomerToCsv']);
+    Route::get('/export-customer', [CustomerController::class, 'exportCustomerToCsv'])->name("customer.export");
 
 });
 

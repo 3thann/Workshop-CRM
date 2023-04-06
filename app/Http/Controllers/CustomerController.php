@@ -7,6 +7,7 @@ use App\Models\Customer;
 use App\Models\Business;
 use App\Models\Status;
 use App\Models\Action;
+use App\Models\OrderLink;
 use League\Csv\Writer;
 
 class CustomerController extends Controller
@@ -44,8 +45,32 @@ class CustomerController extends Controller
         $customer->email = $request->get('email');
         $customer->phone_number = $request->get('phone_number');
         $customer->business_id = $request->get('business_id');
-        $customer->status_id = $request->get('status_id');
-        $customer->is_dead = $request->get('is_dead');
+        $customer->contacted = false;
+        $customer->is_dead = false;
+        $customer->status_id = 1;
+
+        $customer->save();
+
+        if ($request->get('contacted') == "on"){
+            $customer->contacted = true;
+        } else {
+            $customer->contacted = false;
+        }
+
+        if ($request->get('is_dead') == "on"){
+            $customer->is_dead = true;
+        } else {
+            $customer->is_dead = false;
+        }
+
+        if ($request->get('contacted') == "on" and count(OrderLink::where('customer_id', $customer->id)->get()) > 0){
+            $customer->status_id = 3;
+        } else if ($request->get('contacted') == "on" and count(OrderLink::where('customer_id', $customer->id)->get()) < 1){
+            $customer->status_id = 2;
+        } else {
+            $customer->status_id = 1;
+        }
+
         $customer->save();
 
         return redirect()->route('action.create', $customer->id);
@@ -68,8 +93,27 @@ class CustomerController extends Controller
         $customer->email = $request->get('email');
         $customer->phone_number = $request->get('phone_number');
         $customer->business_id = $request->get('business_id');
-        $customer->status_id = $request->get('status_id');
-        $customer->is_dead = $request->get('is_dead');
+
+        if ($request->get('contacted') == "on"){
+            $customer->contacted = true;
+        } else {
+            $customer->contacted = false;
+        }
+
+        if ($request->get('is_dead') == "on"){
+            $customer->is_dead = true;
+        } else {
+            $customer->is_dead = false;
+        }
+
+        if ($request->get('contacted') == "on" and count(OrderLink::where('customer_id', $id)->get()) > 0){
+            $customer->status_id = 3;
+        } else if ($request->get('contacted') == "on" and count(OrderLink::where('customer_id', $id)->get()) < 1){
+            $customer->status_id = 2;
+        } else {
+            $customer->status_id = 1;
+        }
+        
         $customer->save();
 
         return redirect()->route('action.create', $id);
@@ -87,22 +131,22 @@ class CustomerController extends Controller
         $customers = Customer::all();
         $csvExporter = Writer::createFromString('');
     
-        $csvExporter->setDelimiter(',');
-        $csvExporter->insertOne(['Prenom', 'Nom', 'Email', 'Téléphone', 'Entreprise', 'Statut', 'Dernière actions']);
+        $csvExporter->setDelimiter(';');
+        $csvExporter->insertOne(['Prenom', 'Nom', 'Email', 'Telephone', 'Entreprise', 'Statut', 'Dernière actions']);
     
         foreach ($customers as $customer) {
             $csvExporter->insertOne([
                 $customer->first_name,
-                $customer->last_name, 
-                $customer->email, 
-                $customer->phone_number, 
-                $customer->business->name, 
+                $customer->last_name,
+                $customer->email,
+                $customer->phone_number,
+                $customer->business->name,
                 $customer->status->name
             ]);
         }
     
         return response()->streamDownload(function() use ($csvExporter) {
             echo $csvExporter->getContent();
-        }, 'Contacts.csv');
+        }, 'Contacts.csv'); redirect()->route('generics.home');
     }
 }

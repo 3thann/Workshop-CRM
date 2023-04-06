@@ -18,7 +18,8 @@ class Customer extends Model
         'phone_number',
         'is_dead',
         'business_id',
-        'status_id'
+        'status_id',
+        'contacted'
     ];
 
     public function business()
@@ -29,5 +30,10 @@ class Customer extends Model
     public function status()
     {
         return $this->belongsTo(Status::class, "status_id");
+    }
+
+    public function orderlink() 
+    {
+        return $this->hasMany(OrderLink::class, "customer_id");
     }
 }

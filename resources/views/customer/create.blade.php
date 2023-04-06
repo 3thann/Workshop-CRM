@@ -22,14 +22,6 @@
         <div class="input-group">
             <input type="tel" name="phone_number" class="form-control bg-light border small" placeholder="Numéro de téléphone" aria-label="Search" aria-describedby="basic-addon2" required>
         </div>
-        <div class="input-group">
-            <select name="status_id" class="form-control bg-light border small" aria-label="Search" aria-describedby="basic-addon2" required>
-                <option value="1">Statut par defaut : Lead</option>
-                @foreach ($statuses as $status)
-                    <option value="{{ $status->id }}">{{ $status->name }}</option>
-                @endforeach
-            </select>
-        </div>
 
         <div class="input-group">
             <select name="business_id" class="form-control bg-light border small" aria-label="Search" aria-describedby="basic-addon2" required>
@@ -45,10 +37,17 @@
         @endif --}}
 
         <div class="input-group">
-            <select name="is_dead" class="form-control bg-light border small" aria-label="Search" aria-describedby="basic-addon2">
-                <option value="0">Le contact est mort : Non</option>
-                <option value="1">Le contact est mort : Oui</option>
-            </select>
+            <div class="custom-control custom-checkbox">
+                <input name="contacted" type="checkbox" class="custom-control-input" id="contactedCheck">
+                <label class="custom-control-label" for="contactedCheck">Déjà contacté ?</label>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <div class="custom-control custom-checkbox">
+                <input name="is_dead" type="checkbox" class="custom-control-input" id="is_deadCheck">
+                <label class="custom-control-label" for="is_deadCheck">Les données sont erronées ?</label>
+            </div>
         </div>
 
         <div class="input-group">

@@ -67,10 +67,15 @@
             <span>Gestion de comptes</span>
         </a>
     </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('customer.export')}}">
+            <i class="fas fa-file-export"></i>
+            <span>Exporter les clients</span>
+        </a>
+    </li>
     <div class="text-center d-none d-md-inline">
         <button class="rounded-circle border-0" id="sidebarToggle"></button>
     </div>
-
 
 
     <!-- Divider -->

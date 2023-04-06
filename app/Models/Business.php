@@ -19,7 +19,12 @@ class Business extends Model
 
     public function customers()
     {
-        return $this->HasMany(Customer::class);
+        return $this->hasMany(Customer::class);
+    }
+
+    public function orderlink() 
+    {
+        return $this->hasMany(OrderLink::class, "business_id");
     }
 
     public static function boot()

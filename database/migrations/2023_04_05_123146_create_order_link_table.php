@@ -11,15 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('action', function (Blueprint $table) {
-            $table->id();
+        Schema::create('order_link', function (Blueprint $table) {
             $table->unsignedBigInteger('customer_id');
             $table->unsignedBigInteger('business_id');
-            $table->string('description');
-            $table->string('date');
+            $table->unsignedBigInteger('order_id');
 
             $table->foreign('customer_id')->references('id')->on('customer');
             $table->foreign('business_id')->references('id')->on('business');
+            $table->foreign('order_id')->references('id')->on('order');
+
+            $table->primary(array('customer_id', 'business_id', 'order_id'));
 
             $table->timestamps();
         });
@@ -30,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('action');
+        Schema::dropIfExists('order_link');
     }
 };

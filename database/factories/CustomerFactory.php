@@ -26,6 +26,7 @@ class CustomerFactory extends Factory
             'business_id' => Business::all()->pluck('id')->random(),
             'status_id' => rand(1,3),
             'is_dead' => rand(0,1) < 0.5,
+            'contacted' => rand(0,1) < 0.5,
         ];
     }
 }

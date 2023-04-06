@@ -11,10 +11,5 @@ class Action extends Model
 
     protected $table = "action";
 
-    protected $fillable = ['customer_id', 'business_id', 'description'];
-
-    public function customer()
-    {
-        return $this->HasMany(Customer::class);
-    }
+    protected $fillable = ['customer_id', 'business_id', 'description', 'date'];
 }
