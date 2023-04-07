@@ -21,3 +21,8 @@
 
 <!-- Custom JS  -->
 <script src="{{asset('js/custom.js')}}"></script>
+<script src='lib/jquery.min.js'></script>
+<script src='lib/moment.min.js'></script>
+<script src='fullcalendar/fullcalendar.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.5/index.global.min.js'></script>
+

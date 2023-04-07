@@ -58,9 +58,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    Route::get('/calendar', function () {
-        return view('livewire.calendar');
-    });
+    Route::get('/calendar', [CalendarController::class, 'index'])->name('calendar.index');
 
     Route::get('/export-customer', [CustomerController::class, 'exportCustomerToCsv'])->name("customer.export");
 
