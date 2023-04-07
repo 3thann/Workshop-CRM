@@ -1,5 +1,5 @@
 
-## Installation
+## Installation :
 
 Pour installer ce CRM il faut utiliser Git clone dans un terminal avec comme source le dossier
 /htdocs de MAMP où vous voulez cloner le projet du CRM :
@@ -11,41 +11,41 @@ Pour installer ce CRM il faut utiliser Git clone dans un terminal avec comme sou
 - Taper 'npm install' dans le terminal afin d'installer les dépendances.
 - Vous pourrez lancé le projet en faisant 'npm run dev'.
 
-## Learning Laravel
+## Présentation :
 
 Une fois l'application lancé vous arriverez sur le dashboard 
-<!-- ## Laravel Sponsors
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+Description du projet
 
-### Premium Partners
+Titre du projet : NK informatique
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+## Aperçu : 
 
-## Contributing
+Nous avons du créer un CRM Open source de gestion de la relation client facile à prendre en main. Ce site utilise des fonctionnalitées tel que la gestion des utilisateurs, Leads, Prospects, Clients, Entreprises. Il sera possible d'ajouter suprimer des contacts, d'ajouter une action ou une commande à chacun.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## Justification du projet :
 
-## Code of Conduct
+Il existe quelques CRM Open Source disponibles sur le net, 
+mais ceux-ci sont complexes car disposent de trop nombreuses fonctionnalités. 
+Notre CRM en plus d'être open source il sera facile a comprendre, facile à prendre en main et il y aura une documentation.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## Objectifs : 
 
-## Security Vulnerabilities
+Création d'un CRM open source
+Création d'une Landing Page
+Réalisation des différents livrables
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## Phases de travail : 
+
+Jour 1 - Création du projet et de la base de données, ajout du template, création des pages entreprises, leads, prospects, clients, création des routes.
+Jour 2 - Création des seeders et des factories, création des CRUD pour les contacts et les entreprises.
+Jour 3 - Fin du CRUD entreprise, fixation de bug.
+Jour 4 - Ajout de la barre de recherche et de la pagination, fin du CRUD contact, fonctionnalité de déconnexion mise en place, création du CRUD action, début de l'automatisation des statuts, début de la landing page.
+Jour 5 - Ajout de graphique sur le dashboard, modification de la navbar, fixation de bug.
+Jour 6 - Création de la fonctionnalité d'exportation de contact en CSV, début du calendrier, ajout de la gestion des utilisateurs et de son CRUD, landing page finie.
+Jour 7 - Automatisation des statuts fini, fonctionnalité d'exportation de contact fini, fixation de bug.
+Jour 8 - Fixation de bug, fin du calendrier, finition des livrables.
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT). -->
+The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).

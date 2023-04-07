@@ -49,6 +49,7 @@ class BusinessController extends Controller
 
     public function destroy(Request $request)
     {
+        OrderLink::where('business_id', $request->get('business_id'))->delete();
         Customer::where('business_id', $request->get('business_id'))->delete();
         Business::destroy($request->get("business_id"));
         return redirect()->route("business.index");

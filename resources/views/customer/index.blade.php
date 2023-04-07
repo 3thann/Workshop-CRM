@@ -7,8 +7,8 @@
         <h1 class="h3 mb-0 text-gray-800"> Bienvenue sur la page des {{ strtolower($status->name); }}s</h1>
     </div>
     <!-- Page Heading -->
-    <p class="mb-4">Affichage des clients et de leurs informations.</p>
-    <p class="mb-4">Pour ajouter un client, cliquer sur le bouton ci-dessous :</p>
+    <p class="mb-4">Affichage des {{ strtolower($status->name); }}s et de leurs informations.</p>
+    <p class="mb-4">Pour ajouter un contact, cliquer sur le bouton ci-dessous :</p>
 
     <form action="{{ route('customer.create')}}" class="d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
         @csrf
@@ -17,7 +17,7 @@
                 <span class="icon text-white-50">
                     <i class="fas fa-plus"></i>
                 </span>
-                <span class="text">Ajouter un client</span>
+                <span class="text">Ajouter un contact</span>
             </button>
         </div>
     </form>
@@ -31,18 +31,18 @@
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
-                                <th>Prenom</th>
                                 <th>Nom</th>
                                 <th>Email</th>
+                                <th>Téléphone</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($customers as $customer)
                                 <tr>
-                                    <td style="width: 25%;">{{$customer->first_name}}</td>
-                                    <td style="width: 25%;">{{$customer->last_name}}</td>
+                                    <td style="width: 25%;">{{$customer->first_name}} {{$customer->last_name}}</td>
                                     <td style="width: 25%;">{{$customer->email}}</td>
+                                    <td style="width: 25%;">{{$customer->phone_number}}</td>
                                     <td class="custom-td">
                                         <a href="{{ route('customer.edit', $customer->id) }}" class="btn btn-light btn-icon-split" spellcheck="false">
                                             <span class="icon text-gray-600">
