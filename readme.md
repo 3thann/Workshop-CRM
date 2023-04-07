@@ -3,7 +3,9 @@
 
 Prérequis : Pour installer ce CRM il vous faut les applications MAMP (ou autre application permettant d'utiliser PHP) , node.js et composer d'installer sur votre machine.
 
-Utiliser la commande Git clone dans un terminal, avec comme source le dossier /htdocs si vous utiliser l'application MAMP, où vous voulez cloner le projet du CRM puis executer le fichier setup.bat.
+Utiliser la commande Git clone dans un terminal, avec comme source le dossier /htdocs si vous utiliser l'application MAMP, où vous voulez cloner le projet du CRM.
+
+Reliez votre base de donnée à l'aide du fichier `.env.example`, retirer le `.example` au nom de ce dernier, puis executer le fichier `setup.bat`.
 
 ## Présentation :
 
