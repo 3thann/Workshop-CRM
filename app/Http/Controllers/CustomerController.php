@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Models\Customer;
 use App\Models\Business;
@@ -129,25 +130,28 @@ class CustomerController extends Controller
 
     public function exportCustomerToCsv()
     {
-        $customers = Customer::all();
+        $customers = Customer::with('action')->get();
         $csvExporter = Writer::createFromString('');
     
         $csvExporter->setDelimiter(';');
-        $csvExporter->insertOne(['Prenom', 'Nom', 'Email', 'Telephone', 'Entreprise', 'Statut', 'Dernière actions']);
+        $csvExporter->insertOne(['Prenom', 'Nom', 'Email', 'Telephone', 'Entreprise', 'Statut', 'Dernière action']);
     
         foreach ($customers as $customer) {
+            $lastAction = $customer->action ? $customer->action()->orderBy('date', 'desc')->first() : null;
+            $lastActionName = $lastAction ? $lastAction->name : '';
             $csvExporter->insertOne([
                 $customer->first_name,
                 $customer->last_name,
                 $customer->email,
                 $customer->phone_number,
                 $customer->business->name,
-                $customer->status->name
+                $customer->status->name,
+                $lastActionName
             ]);
         }
     
         return response()->streamDownload(function() use ($csvExporter) {
             echo $csvExporter->getContent();
-        }, 'Contacts.csv'); redirect()->route('generics.home');
+        }, 'Contacts.csv');
     }
 }

@@ -12,4 +12,9 @@ class Action extends Model
     protected $table = "action";
 
     protected $fillable = ['customer_id', 'business_id', 'description', 'date'];
+
+    public function customer()
+    {
+        return $this->belongsTo(Customer::class);
+    }
 }
