@@ -4,7 +4,7 @@
 @section('content')
 <div class="container-fluid">
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Bienvenue sur la page des {{ strtolower($customers[0]->status->name); }}s</h1>
+        <h1 class="h3 mb-0 text-gray-800"> Bienvenue sur la page des {{ strtolower($status->name); }}s</h1>
     </div>
     <!-- Page Heading -->
     <p class="mb-4">Affichage des clients et de leurs informations.</p>

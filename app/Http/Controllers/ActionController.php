@@ -32,6 +32,6 @@ class ActionController extends Controller
             }
         } else {}
 
-        return redirect()->route('customer.index', $customer->status_id);
+        return redirect()->route('order.create', $customer->id);
     }
 }

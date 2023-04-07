@@ -12,8 +12,6 @@
         @csrf
         <div class="input-group">
             <input type="text" name="name" class="form-control bg-light border small" value="{{old('name')}}" placeholder="Nom de l'entreprise" aria-label="Search" aria-describedby="basic-addon2" required>
-
-            <input type="text" name="name" class="form-control bg-light border small" value="{{old('name')}}" placeholder="Nom de l'entreprise" aria-label="Search" aria-describedby="basic-addon2" required>
             <div class="input-group-append">
                 <button type="submit" class="btn btn-success btn-icon-split" spellcheck="false">
                     <span class="icon text-white-50">

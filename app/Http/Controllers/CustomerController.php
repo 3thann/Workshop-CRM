@@ -7,6 +7,7 @@ use App\Models\Customer;
 use App\Models\Business;
 use App\Models\Status;
 use App\Models\Action;
+use App\Models\Order;
 use App\Models\OrderLink;
 use League\Csv\Writer;
 
@@ -15,18 +16,18 @@ class CustomerController extends Controller
     public function index($status_id)
     {
         $customers = Customer::where('status_id', $status_id)->get();
+        $status = Status::find($status_id);
 
-        return view('customer.index', compact("customers"));
+        return view('customer.index', compact("customers", "status"));
     }
 
     public function show($id)
     {
         $customer = Customer::find($id);
-        $status = Status::all();
-        $business = Business::all();
         $actions = Action::where('customer_id', $id)->get();
+        $orderslink = OrderLink::with('order')->where('customer_id', $id)->get();
 
-        return view('customer.show', compact("customer", "status", "business", "actions"));
+        return view('customer.show', compact("customer", "actions", "orderslink"));
     }
 
     public function create()
