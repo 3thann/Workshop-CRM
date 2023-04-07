@@ -37,14 +37,21 @@
         <div class="input-group">
             <div class="custom-control custom-checkbox">
                 <input name="contacted" type="checkbox" class="custom-control-input" id="contactedCheck">
-                <label class="custom-control-label" for="contactedCheck">Déjà contacté ?</label>
+                <label class="custom-control-label" for="contactedCheck">Déjà contacté</label>
             </div>
         </div>
 
         <div class="input-group">
             <div class="custom-control custom-checkbox">
-                <input name="is_dead" type="checkbox" class="custom-control-input" id="is_deadCheck">
-                <label class="custom-control-label" for="is_deadCheck">Les données sont erronées ?</label>
+                <input name="lead_dead" type="checkbox" class="custom-control-input" id="leadDeadCheck">
+                <label class="custom-control-label" for="leadDeadCheck">Les données sont erronées</label>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <div class="custom-control custom-checkbox">
+                <input name="prospect_dead" type="checkbox" class="custom-control-input" id="prospectDeadCheck">
+                <label class="custom-control-label" for="prospectDeadCheck">La prospection de vente est refusée</label>
             </div>
         </div>
 
@@ -59,7 +66,7 @@
     <form action="{{ url()->previous() }}" class="d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
         <button type="submit" class="btn btn-danger btn-icon-split" spellcheck="false">
                     <span class="icon text-white-50">
-                        <i class="fas fa-trash"></i>
+                        <i class="fas fa-angle-double-left"></i>
                     </span>
             <span class="text">Annuler</span>
         </button>

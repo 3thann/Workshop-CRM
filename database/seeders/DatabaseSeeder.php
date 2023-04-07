@@ -15,9 +15,9 @@ class DatabaseSeeder extends Seeder
         $this->call([
             BusinessSeeder::class,
         ]);
-        \App\Models\Business::factory(50)->create();
-        \App\Models\Customer::factory(50)->create();
-        \App\Models\Order::factory(50)->create();
-        \App\Models\OrderLink::factory(50)->create();
+        // \App\Models\Business::factory(50)->create();
+        // \App\Models\Customer::factory(50)->create();
+        // \App\Models\Order::factory(50)->create();
+        // \App\Models\OrderLink::factory(50)->create();
     }
 }

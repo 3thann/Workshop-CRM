@@ -59,15 +59,15 @@ class CustomerController extends Controller
             $customer->contacted = false;
         }
 
-        if ($request->get('is_dead') == "on"){
+        if ($request->get('prospect_dead') == "on"){
+            $customer->status_id = 2;
             $customer->is_dead = true;
-        } else {
-            $customer->is_dead = false;
-        }
-
-        if ($request->get('contacted') == "on" and count(OrderLink::where('customer_id', $customer->id)->get()) > 0){
+        } else if ($request->get('lead_dead') == "on"){
+            $customer->status_id = 1;
+            $customer->is_dead = true;
+        } else if ($request->get('contacted') == "on" and count(OrderLink::where('customer_id', $id)->get()) > 0){
             $customer->status_id = 3;
-        } else if ($request->get('contacted') == "on" and count(OrderLink::where('customer_id', $customer->id)->get()) < 1){
+        } else if ($request->get('contacted') == "on" and count(OrderLink::where('customer_id', $id)->get()) < 1){
             $customer->status_id = 2;
         } else {
             $customer->status_id = 1;
@@ -95,6 +95,7 @@ class CustomerController extends Controller
         $customer->email = $request->get('email');
         $customer->phone_number = $request->get('phone_number');
         $customer->business_id = $request->get('business_id');
+        $customer->is_dead = false;
 
         if ($request->get('contacted') == "on"){
             $customer->contacted = true;
@@ -102,13 +103,13 @@ class CustomerController extends Controller
             $customer->contacted = false;
         }
 
-        if ($request->get('is_dead') == "on"){
+        if ($request->get('prospect_dead') == "on"){
+            $customer->status_id = 2;
             $customer->is_dead = true;
-        } else {
-            $customer->is_dead = false;
-        }
-
-        if ($request->get('contacted') == "on" and count(OrderLink::where('customer_id', $id)->get()) > 0){
+        } else if ($request->get('lead_dead') == "on"){
+            $customer->status_id = 1;
+            $customer->is_dead = true;
+        } else if ($request->get('contacted') == "on" and count(OrderLink::where('customer_id', $id)->get()) > 0){
             $customer->status_id = 3;
         } else if ($request->get('contacted') == "on" and count(OrderLink::where('customer_id', $id)->get()) < 1){
             $customer->status_id = 2;
@@ -123,6 +124,7 @@ class CustomerController extends Controller
 
     public function destroy(Request $request)
     {
+        OrderLink::where('customer_id', $request->get('customer_id'))->delete();
         Customer::find($request->get('customer_id'))->delete();
 
         return redirect()->route('customer.index', $request->get('status_id_old'));

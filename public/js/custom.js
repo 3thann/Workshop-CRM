@@ -51,7 +51,7 @@ function addOrderField() {
     input_name.setAttribute("placeholder", "Nom de la commande");
     input_name.setAttribute("required", "required");
     input_name.classList.add("form-control", "bg-light", "border", "small");
-    
+
     var input_quantity = document.createElement("input");
     input_quantity.setAttribute("type", "text");
     input_quantity.setAttribute("name", "quantity[]");
@@ -99,3 +99,19 @@ removeButtons.forEach(function(button){
         button.parentNode.remove();
     })
 })
+
+var Customer = "<?php echo oui; ?>";
+let evenements = [{
+    "title": Customer,
+    "start":"2023-04-06 14:00:00",
+    "end":"2023-04-09 16:00:00"
+}];
+document.addEventListener('DOMContentLoaded', function() {
+    var calendarEl = document.getElementById('calendar');
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+        initialView: 'dayGridMonth',
+        locale: 'fr',
+        events: evenements
+    });
+    calendar.render();
+});
