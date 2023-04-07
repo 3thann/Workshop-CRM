@@ -31,7 +31,6 @@ class OrderController extends Controller
 
                 $orderLink = new OrderLink();
                 $orderLink->customer_id = $id;
-                $orderLink->business_id = $customer->business_id;
                 $orderLink->order_id = $order->id;
                 $orderLink->save();
 

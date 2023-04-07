@@ -13,14 +13,12 @@ return new class extends Migration
     {
         Schema::create('order_link', function (Blueprint $table) {
             $table->unsignedBigInteger('customer_id');
-            $table->unsignedBigInteger('business_id');
             $table->unsignedBigInteger('order_id');
 
             $table->foreign('customer_id')->references('id')->on('customer');
-            $table->foreign('business_id')->references('id')->on('business');
             $table->foreign('order_id')->references('id')->on('order');
 
-            $table->primary(array('customer_id', 'business_id', 'order_id'));
+            $table->primary(array('customer_id', 'order_id'));
 
             $table->timestamps();
         });

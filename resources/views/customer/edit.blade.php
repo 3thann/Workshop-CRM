@@ -36,21 +36,33 @@
 
         <div class="input-group">
             <div class="custom-control custom-checkbox">
+                @if ($customer->contacted == true)
+                <input name="contacted" type="checkbox" class="custom-control-input" id="contactedCheck" checked>
+                @else
                 <input name="contacted" type="checkbox" class="custom-control-input" id="contactedCheck">
+                @endif
                 <label class="custom-control-label" for="contactedCheck">Déjà contacté</label>
             </div>
         </div>
 
         <div class="input-group">
             <div class="custom-control custom-checkbox">
-                <input name="lead_dead" type="checkbox" class="custom-control-input" id="leadDeadCheck">
+                @if ($customer->status_id == 1 and $customer->is_dead == true)
+                    <input name="lead_dead" type="checkbox" class="custom-control-input" id="leadDeadCheck" checked>
+                @else 
+                    <input name="lead_dead" type="checkbox" class="custom-control-input" id="leadDeadCheck">
+                @endif
                 <label class="custom-control-label" for="leadDeadCheck">Les données sont erronées</label>
             </div>
         </div>
 
         <div class="input-group">
             <div class="custom-control custom-checkbox">
-                <input name="prospect_dead" type="checkbox" class="custom-control-input" id="prospectDeadCheck">
+                @if ($customer->status_id == 2 and $customer->is_dead == true)
+                <input name="prospect_dead" type="checkbox" class="custom-control-input" id="prospectDeadCheck" checked>
+                @else
+                    <input name="prospect_dead" type="checkbox" class="custom-control-input" id="prospectDeadCheck">
+                @endif
                 <label class="custom-control-label" for="prospectDeadCheck">La prospection de vente est refusée</label>
             </div>
         </div>

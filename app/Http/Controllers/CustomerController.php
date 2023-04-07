@@ -64,9 +64,9 @@ class CustomerController extends Controller
         } else if ($request->get('lead_dead') == "on"){
             $customer->status_id = 1;
             $customer->is_dead = true;
-        } else if ($request->get('contacted') == "on" and count(OrderLink::where('customer_id', $id)->get()) > 0){
+        } else if ($request->get('contacted') == "on" and count(OrderLink::where('customer_id', $customer->id)->get()) > 0){
             $customer->status_id = 3;
-        } else if ($request->get('contacted') == "on" and count(OrderLink::where('customer_id', $id)->get()) < 1){
+        } else if ($request->get('contacted') == "on" and count(OrderLink::where('customer_id', $customer->id)->get()) < 1){
             $customer->status_id = 2;
         } else {
             $customer->status_id = 1;
@@ -135,16 +135,23 @@ class CustomerController extends Controller
         $csvExporter = Writer::createFromString('');
     
         $csvExporter->setDelimiter(';');
-        $csvExporter->insertOne(['Prénom', 'Nom', 'Email', 'Téléphone', 'Entreprise', 'Statut', 'Dernière actions']);
+        $csvExporter->insertOne(['Prenom', 'Nom', 'Email', 'Telephone', 'Entreprise', 'Statut', 'Derniere actions']);
     
         foreach ($customers as $customer) {
+
+            if ($customer->is_dead == true) {
+                $status = $customer->status->name . " mort";
+            } else {
+                $status = $customer->status->name;
+            }
+
             $csvExporter->insertOne([
                 $customer->first_name,
                 $customer->last_name,
                 $customer->email,
                 $customer->phone_number,
                 $customer->business->name,
-                $customer->status->name
+                $status
             ]);
         }
     

@@ -17,10 +17,9 @@ class BusinessController extends Controller
     
     public function show($id)
     {
-        $business = Business::with("customers")->find($id);
-        $orders = OrderLink::where("business_id", $id)->get();
+        $business = Business::with("customers", "customers.orderlink.order")->find($id);
 
-        return view('business.show', compact("business", "orders"));
+        return view('business.show', compact("business"));
     }
 
     public function store(Request $request)
@@ -49,9 +48,15 @@ class BusinessController extends Controller
 
     public function destroy(Request $request)
     {
-        OrderLink::where('business_id', $request->get('business_id'))->delete();
-        Customer::where('business_id', $request->get('business_id'))->delete();
-        Business::destroy($request->get("business_id"));
+        $business = Business::find($request->get("business_id"));
+
+        if ($business->customers->count() > 0) {
+            session()->flash('error', 'Impossible de supprimer cette entreprise car elle est liée à un ou des contact(s).');
+            return redirect()->back();
+        }
+
+        $business->delete();
+
         return redirect()->route("business.index");
     }
 }

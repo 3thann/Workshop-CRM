@@ -21,7 +21,6 @@ class OrderLinkFactory extends Factory
     {
         return [
             'customer_id' => Customer::all()->pluck('id')->random(),
-            'business_id' => Business::all()->pluck('id')->random(),
             'order_id' => Order::all()->pluck('id')->random(),
         ];
     }

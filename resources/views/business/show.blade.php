@@ -6,9 +6,6 @@
         <h1 class="h3 mb-0 text-gray-800">Information de l'entreprise {{ $business->name}}</h1>
     </div>
     <!-- Page Heading -->
-    <form action="{{ route('business.store') }}" method="POST" class="d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-        @csrf
-            
     @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
@@ -27,13 +24,17 @@
                     <table class="table table-bordered" width="100%" cellspacing="0">
                         <thead>
                             <tr>
-                                <th>Nom des clients</th>
+                                <th>Nom du contact</th>
+                                <th>Nombre de commande</th>
+                                <th>Statut du contact</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($business->customers as $customer)
                                 <tr>
-                                    <td style="width: 100%;">{{ $customer->first_name }} {{ $customer->last_name }}</td>
+                                    <td style="width: 33%;">{{ $customer->first_name }} {{ $customer->last_name }}</td>
+                                    <td style="width: 33%;">{{ count($customer->orderlink) }}</td>
+                                    <td style="width: 33%;">{{ $customer->status->name }}</td>
                                 </tr>
                             @endforeach
                         </tbody>
@@ -41,6 +42,36 @@
                 </div>
             </div>
         </div>
+
+        <div class="card shadow mb-4">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Contact</th>
+                                <th>Commande</th>
+                                <th>Quantité</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($business->customers as $customer)
+                                @foreach ($customer->orderlink as $orderlink)
+                                    <tr>
+                                        <td style="width: 35%;">{{ $customer->first_name }} {{ $customer->last_name }}</td>
+                                        <td style="width: 35%;">{{ $orderlink->order->name }}</td>
+                                        <td style="width: 10%;">{{ $orderlink->order->quantity }}</td>
+                                        <td style="width: 20%;">{{ $orderlink->order->date }}</td>
+                                    </tr>
+                                @endforeach
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
     </div>
 </div>
 
