@@ -1,8 +1,4 @@
 @echo off
 title Installation du CRM
-composer install
-npm install
-npm run dev
-php artisan key:generate
-php artisan migrate:fresh --seed
+composer install && npm install && php artisan key:generate && php artisan migrate:fresh --seed && npm run dev
 pause

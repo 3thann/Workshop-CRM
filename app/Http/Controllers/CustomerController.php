@@ -125,6 +125,7 @@ class CustomerController extends Controller
     public function destroy(Request $request)
     {
         OrderLink::where('customer_id', $request->get('customer_id'))->delete();
+        Action::where('customer_id', $request->get('customer_id'))->delete();
         Customer::find($request->get('customer_id'))->delete();
 
         return redirect()->route('customer.index', $request->get('status_id_old'));
