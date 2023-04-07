@@ -51,8 +51,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/businesses', [BusinessController::class, 'destroy'])->name("business.destroy");
 
     Route::get('/account', [UserController::class, 'index'])->name("account.index");
-    Route::get('/account/{id}/edit', [UserController::class, 'edit'])->name("account.edit");
     Route::post('/account/create', [UserController::class, 'store'])->name("account.store");
+    Route::get('/account/{id}/edit', [UserController::class, 'edit'])->name("account.edit");
+    Route::put('/account/{id}/update', [UserController::class, 'update'])->name("account.update");
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

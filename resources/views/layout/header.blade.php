@@ -11,10 +11,15 @@
         rel="stylesheet">
     <!-- Custom styles for this template-->
 
-
+    <link rel="stylesheet" href="fullcalendar/core/main.css">
+    <link rel="stylesheet" href="fullcalendar/daygrid/main.css">
+    <link rel="stylesheet" href="fullcalendar/list/main.css">
+    <link rel="stylesheet" href="fullcalendar/interaction/main.css">
+    <link rel='stylesheet' href='fullcalendar/fullcalendar.css' />
     <link href="{{ asset('./css/sb-admin-2.css') }}" rel="stylesheet">
     <link href="{{ asset('./css/custom.css') }}" rel="stylesheet">
     <link href="{{ asset('./css/dashboard.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css')}}" />
-    
+
+
 </head>

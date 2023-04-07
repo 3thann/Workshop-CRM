@@ -16,9 +16,9 @@
         <form action="{{ route('account.store')}}" method="POST" class="d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
             @csrf
             <div class="input-group">
-                <input type="text" name="name" class="form-control bg-light border small" value="{{old('name')}}" placeholder="Nom de l'utilisateur" aria-label="Search" aria-describedby="basic-addon2">
-                <input type="text" name="email" class="form-control bg-light border small" value="{{old('email')}}" placeholder="Email de l'utilisateur" aria-label="Search" aria-describedby="basic-addon2">
-                <input type="text" name="password" class="form-control bg-light border small" value="{{old('password')}}" placeholder="Mot de passe provisoire" aria-label="Search" aria-describedby="basic-addon2">
+                <input type="text" name="name" class="form-control bg-light border small" value="{{old('name')}}" placeholder="Nom de l'utilisateur" aria-label="Search" aria-describedby="basic-addon2" required>
+                <input type="text" name="email" class="form-control bg-light border small" value="{{old('email')}}" placeholder="Email de l'utilisateur" aria-label="Search" aria-describedby="basic-addon2" required>
+                <input type="text" name="password" class="form-control bg-light border small" value="{{old('password')}}" placeholder="Mot de passe provisoire" aria-label="Search" aria-describedby="basic-addon2" required>
 
                 <div class="input-group-append">
                     <button type="submit" class="btn btn-success btn-icon-split" spellcheck="false">
@@ -54,20 +54,22 @@
                             <tr>
                                 <th>Nom d'utilisateur</th>
                                 <th>Email</th>
-                                <th>Actions</th>
+                                <th>Action</th>
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($user as $users)
+                            @foreach($users as $user)
                                 <tr>
-                                    <td style="width: 25%;">{{$users->name}}</td>
-                                    <td style="width: 25%;">{{$users->email}}</td>
-                                    <td style="width: 25%;"><a href="{{ route('account.edit', $users->id) }}" class="btn btn-light btn-icon-split" spellcheck="false">
+                                    <td style="width: 25%;">{{$user->name}}</td>
+                                    <td style="width: 25%;">{{$user->email}}</td>
+                                    <td style="width: 25%;">
+                                        <a href="{{ route('account.edit', $user->id) }}" class="btn btn-light btn-icon-split" spellcheck="false">
                                             <span class="icon text-gray-600">
                                                 <i class="far fa-edit"></i>
                                             </span>
                                             <span class="text">Modifier</span>
-                                        </a></td>
+                                        </a>
+                                    </td>
                                 </tr>
                             @endforeach
                             </tbody>

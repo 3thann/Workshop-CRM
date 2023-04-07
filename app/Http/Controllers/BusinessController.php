@@ -12,6 +12,7 @@ class BusinessController extends Controller
     public function index()
     {
         $businesses = Business::all();
+        
         return view('business.index', compact("businesses"));
     }
     
@@ -34,6 +35,7 @@ class BusinessController extends Controller
     public function edit($id)
     {
         $business = Business::find($id);
+
         return view('business.edit', compact("business"));
     }
 

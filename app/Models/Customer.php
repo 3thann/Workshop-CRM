@@ -36,4 +36,9 @@ class Customer extends Model
     {
         return $this->hasMany(OrderLink::class, "customer_id");
     }
+
+    public function action()
+    {
+        return $this->hasMany(Action::class);
+    }
 }

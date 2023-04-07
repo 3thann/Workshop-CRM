@@ -68,10 +68,10 @@
 
 <script type="text/javascript">
 
-    document.addEventListener('DOMContentLoaded', function() {         
+    document.addEventListener('DOMContentLoaded', function() {
         var instances = M.FormSelect.init(elems, options);
+
     });
-    // Or with jQuery
     $(document).ready(function(){
         $('select').formSelect();
         $('#dataTable').DataTable({
@@ -86,10 +86,10 @@
                 null,
                 null,
                 { className: "tabSearch" }
-            ]             
-        }); 
+            ],
+        });
     });
-        
+
 </script>
 
 
