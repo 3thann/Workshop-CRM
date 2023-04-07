@@ -9,7 +9,6 @@
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Ajouter un contact</h1>
         </div>
-        <div>
         <div class="input-group">
             <input type="text" name="first_name" class="form-control bg-light border small" placeholder="Prénom" aria-label="Search" aria-describedby="basic-addon2" required>
         </div>
@@ -34,15 +33,37 @@
 
         <div class="input-group">
             <div class="custom-control custom-checkbox">
+                @if ($customer->contacted == true) {
+                <input name="contacted" type="checkbox" class="custom-control-input" id="contactedCheck" checked>
+                }
+                @else
                 <input name="contacted" type="checkbox" class="custom-control-input" id="contactedCheck">
-                <label class="custom-control-label" for="contactedCheck">Déjà contacté ?</label>
+                @endif
+                <label class="custom-control-label" for="contactedCheck">Déjà contacté</label>
             </div>
         </div>
 
         <div class="input-group">
             <div class="custom-control custom-checkbox">
-                <input name="is_dead" type="checkbox" class="custom-control-input" id="is_deadCheck">
-                <label class="custom-control-label" for="is_deadCheck">Les données sont erronées ?</label>
+                @if ($customer->status_id == 1 and $customer->is_dead == true) {
+                    <input name="lead_dead" type="checkbox" class="custom-control-input" id="leadDeadCheck" checked>
+                }  
+                @else 
+                    <input name="lead_dead" type="checkbox" class="custom-control-input" id="leadDeadCheck">
+                @endif
+                <label class="custom-control-label" for="leadDeadCheck">Les données sont erronées</label>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <div class="custom-control custom-checkbox">
+                @if ($customer->status_id == 2 and $customer->is_dead == true) {
+                <input name="prospect_dead" type="checkbox" class="custom-control-input" id="prospectDeadCheck" checked>
+                }
+                @else
+                    <input name="prospect_dead" type="checkbox" class="custom-control-input" id="prospectDeadCheck">
+                @endif
+                <label class="custom-control-label" for="prospectDeadCheck">La prospection de vente est refusée</label>
             </div>
         </div>
 
@@ -57,7 +78,7 @@
     <form action="{{ url()->previous() }}" class="d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
         <button type="submit" class="btn btn-danger btn-icon-split" spellcheck="false">
                     <span class="icon text-white-50">
-                        <i class="fas fa-trash"></i>
+                        <i class="fas fa-angle-double-left"></i>
                     </span>
             <span class="text">Supprimer</span>
         </button>

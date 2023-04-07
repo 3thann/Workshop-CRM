@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Customer;
 use App\Models\Order;
+use App\Models\OrderLink;
 
 class OrderController extends Controller
 {
@@ -20,8 +21,7 @@ class OrderController extends Controller
     {
         $customer = Customer::find($id);
 
-
-        if (isset($request->description)) {
+        if (isset($request->name)) {
             foreach ($request->name as $key => $name) {
                 $order = new Order();
                 $order->name = $name;
@@ -38,6 +38,10 @@ class OrderController extends Controller
                 $order = null;
                 $orderLink = null;
             }
+
+            $customer->status_id = 3;
+            $customer->save();
+
         } else {}
 
         return redirect()->route('customer.index', $customer->status_id);

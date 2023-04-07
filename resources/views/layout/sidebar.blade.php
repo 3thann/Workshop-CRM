@@ -29,7 +29,7 @@
 
     <!-- Heading -->
     <div class="sidebar-heading">
-        Un truc
+        Contact
     </div>
 
     <!-- Nav Item - Pages Collapse Menu -->
@@ -64,13 +64,13 @@
     <li class="nav-item">
         <a class="nav-link" href="{{ route('account.index') }}">
             <i class="fas fa-users-cog"></i>
-            <span>Gestion de comptes</span>
+            <span>Gestion des utilisateurs</span>
         </a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="{{ route('customer.export')}}">
             <i class="fas fa-file-export"></i>
-            <span>Exporter les clients</span>
+            <span>Exporter les contacts</span>
         </a>
     </li>
     <div class="text-center d-none d-md-inline">
