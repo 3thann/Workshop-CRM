@@ -1,4 +1,4 @@
-@extends('layout.app')
+ @extends('layout.app')
 
 @section('content')
 
@@ -8,13 +8,14 @@
         </div>
 
         <!-- Page Heading -->
-        <form action="{{ route('account.update', $user->id)}}" method="POST" class="d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+        
+        <form action="{{ route('account.update', $user->id) }}" method="POST" class="d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
             @method("PUT")
             @csrf
             <div class="input-group">
-                <input type="text" name="name" class="form-control bg-light border small" placeholder="Changer le nom" aria-label="Search" aria-describedby="basic-addon2" value="{{ $user->name }}">
-
-                <input type="hidden" name="user_id" value='{{$user->id}}'>
+                <input type="text" name="name" class="form-control bg-light border small" placeholder="Changer le nom" aria-label="Search" aria-describedby="basic-addon2" value="{{ $user->name }}" required>
+                <input type="email" name="email" class="form-control bg-light border small" placeholder="Changer l'email" aria-label="Search" aria-describedby="basic-addon2" value="{{ $user->email }}" required>
+                <input type="text" name="password" class="form-control bg-light border small" value="{{old('password')}}" placeholder="Nouveau mot de passe" aria-label="Search" aria-describedby="basic-addon2" required>
                 <div class="input-group-append">
                     <button type="submit" class="btn btn-success btn-icon-split" spellcheck="false">
                         <span class="icon text-white-50">
@@ -38,4 +39,4 @@
             </button>
         </form>
 
-@endsection
+@endsection 

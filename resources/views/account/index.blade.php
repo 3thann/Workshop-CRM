@@ -17,7 +17,7 @@
             @csrf
             <div class="input-group">
                 <input type="text" name="name" class="form-control bg-light border small" value="{{old('name')}}" placeholder="Nom de l'utilisateur" aria-label="Search" aria-describedby="basic-addon2" required>
-                <input type="text" name="email" class="form-control bg-light border small" value="{{old('email')}}" placeholder="Email de l'utilisateur" aria-label="Search" aria-describedby="basic-addon2" required>
+                <input type="email" name="email" class="form-control bg-light border small" value="{{old('email')}}" placeholder="Email de l'utilisateur" aria-label="Search" aria-describedby="basic-addon2" required>
                 <input type="text" name="password" class="form-control bg-light border small" value="{{old('password')}}" placeholder="Mot de passe provisoire" aria-label="Search" aria-describedby="basic-addon2" required>
 
                 <div class="input-group-append">
@@ -63,7 +63,7 @@
                                     <td style="width: 25%;">{{$user->name}}</td>
                                     <td style="width: 25%;">{{$user->email}}</td>
                                     <td style="width: 25%;">
-                                        <a href="{{ route('account.edit', $user->id) }}" class="btn btn-light btn-icon-split" spellcheck="false">
+                                        <a href="{{ route('account.edit', $user->id) }}  " class="btn btn-light btn-icon-split" spellcheck="false">
                                             <span class="icon text-gray-600">
                                                 <i class="far fa-edit"></i>
                                             </span>

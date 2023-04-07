@@ -8,12 +8,14 @@ use App\Models\User;
 
 
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Route;
 
 class UserController extends Controller
 {
     public function index()
     {
         $users = User::all();
+        
             return view('account.index', compact('users'));
     }
     public function store(Request $request)
@@ -24,24 +26,32 @@ class UserController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-
         return redirect()->route('account.index', compact('users'));
     }
 
     public function edit($id)
+{
+    $user = User::find($id);
+
+    return view('account.edit', compact('user'));
+}
+
+public function update(Request $request, $id)
     {
         $user = User::find($id);
+        $user->name = $request->get('name');
+        $user->email = $request->get('email');
+        $user->password = bcrypt($request->get('password'));
+        $user->save();
 
-        return redirect()->route('account.edit', compact('user'));
+        return redirect()->route('account.index', compact('user'));
     }
 
-    public function update(Request $request, $id)
+    public function destroy($id)
     {
-        $users = User::find($id);
-        $users->name = $request->get('name');
-        $users->name = $request->get('email');
-        $users->save();
+        $user = User::find($id);
+        $user->delete();
 
-        return redirect()->route('account.index', compact('users'));
+        return redirect()->route("account.index");
     }
 }
