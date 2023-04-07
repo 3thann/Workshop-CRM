@@ -154,9 +154,8 @@ class CustomerController extends Controller
                 $customer->email,
                 $customer->phone_number,
                 $customer->business->name,
-                $status
-                $customer->status->name,
-                $lastActionName
+                $status,
+                $lastActionName,
             ]);
         }
     
